@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         { // Move Left
             velocity.x = walkSpeed * -1;
             if (_controller.isGrounded)
-                _animator.setAnimation("Run");
+                _animator.setAnimation("Walk");
             _animator.setFacing("Left");
         }
         // if horizontal input is positive, move right
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         { // Move Right
             velocity.x = walkSpeed;
             if (_controller.isGrounded)
-                _animator.setAnimation("Run");
+                _animator.setAnimation("Walk");
             _animator.setFacing("Right");
         }
         // else, player is idle
