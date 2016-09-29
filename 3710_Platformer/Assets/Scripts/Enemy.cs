@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
 
 
-    public GameObject player;//target this enemy will chase/attack //may not be needed for base enemy
+    public GameObject player;//target this enemy will chase/attack
     public int health = 1;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 

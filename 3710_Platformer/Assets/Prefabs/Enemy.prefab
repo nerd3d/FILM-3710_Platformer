@@ -25,9 +25,9 @@ GameObject:
   - 114: {fileID: 114000011143889854}
   - 114: {fileID: 114000013289571432}
   - 114: {fileID: 114000011381320150}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: EnemyType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   health: 1
   contactDamage: 1
   moveSpeed: 1
+  beginFacingRight: 1
   gravity: -35
 --- !u!114 &114000013289571432
 MonoBehaviour:
