@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Prime31;
+using System.Collections.Generic;
 
 /// <summary>
 /// This is the base enemy class. This enemy will not chase the player. Movement is simply
@@ -25,8 +26,10 @@ public class Enemy : MonoBehaviour
     public int contactDamage = 1;//damage player takes when touched by this enemy
 
     public float moveSpeed = 1;//movement speed of this enemy
+    public bool beginFacingRight = true;
     public float gravity = -35;
 
+    private Vector3 previousPosition;
 
     // Use this for initialization
     void Start ()
@@ -35,8 +38,13 @@ public class Enemy : MonoBehaviour
         _controller = gameObject.GetComponent<CharacterController2D>();
         _animator = gameObject.GetComponent<AnimationController2D>();
         currentHealth = health;
-        _animator.setFacing("Right");
+        if(beginFacingRight)
+            _animator.setFacing("Right");
+        else
+            _animator.setFacing("Left");
         cameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        previousPosition = _controller.transform.position;
+        previousPosition.x++;//offset previous position for first Update().
     }
 	
 	// Update is called once per frame
@@ -54,16 +62,24 @@ public class Enemy : MonoBehaviour
         //if offscreen on right side
         if (_controller.transform.position.x > cameraWidth)
         {
-            velocity.x = -moveSpeed;
-            //_animator.setAnimation("Walk"); //not in whitebox version
-            _animator.setFacing("Left");
+            turnLeft(velocity);
         }
         //if offscreen on left side
         else if(_controller.transform.position.x < -cameraWidth)
         {
-            velocity.x = moveSpeed;
-            //_animator.setAnimation("Walk"); //not in whitebox version
-            _animator.setFacing("Right");
+            turnRight(velocity);
+        }
+        //if not moving forward (due to obstacle)
+        else if(_controller.transform.position == previousPosition)
+        {
+            if(_animator.getFacing() == "Left")
+            {
+                turnRight(velocity);
+            }
+            else
+            {
+                turnLeft(velocity);
+            }
         }
         //move left if facing left, right otherwise.
         if(_animator.getFacing() == "Left")
@@ -86,9 +102,22 @@ public class Enemy : MonoBehaviour
         //else
         //{
         //    velocity.x = -moveSpeed;
-            //_animator.setAnimation("Walk"); //not in whitebox version
+        //_animator.setAnimation("Walk"); //not in whitebox version
         //    _animator.setFacing("Left");
         //}
+        previousPosition = _controller.transform.position;
         return velocity;
+    }
+    private void turnRight(Vector3 velocity)
+    {
+        velocity.x = moveSpeed;
+        //_animator.setAnimation("Walk"); //not in whitebox version
+        _animator.setFacing("Right");
+    }
+    private void turnLeft(Vector3 velocity)
+    {
+        velocity.x = -moveSpeed;
+        //_animator.setAnimation("Walk"); //not in whitebox version
+        _animator.setFacing("Left");
     }
 }
