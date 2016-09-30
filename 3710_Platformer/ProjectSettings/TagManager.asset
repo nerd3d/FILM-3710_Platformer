@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyType1
+  - PlayerClub
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - One Way Platform
   - Trigger
   - Enemy
-  - 
+  - PlayerAttack
   - 
   - 
   - 
