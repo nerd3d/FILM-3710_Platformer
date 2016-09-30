@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // if jump is pressed & player is grounded, player jumps
-        if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
+        if (Input.GetAxis("Vertical") > 0 && _controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
             _animator.setAnimation("Jump");
@@ -123,14 +123,15 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("enterTriger");
         if (col.tag == "KillZ") // insta-kill effect
         {
             PlayerFallDeath();
         }
         else if (col.tag == "EnemyType1") // damage effect
         {
-            Debug.Log("triggered!");
-            PlayerDamage(startingHealth - 10);
+            Debug.Log("Damaged!");
+            PlayerDamage(startingHealth + 10);
         }
     }
 

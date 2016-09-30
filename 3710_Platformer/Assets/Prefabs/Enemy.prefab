@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000011143889854}
   - 114: {fileID: 114000013289571432}
   - 114: {fileID: 114000011381320150}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: EnemyType1
   m_Icon: {fileID: 0}
@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011543400986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07396892, y: -1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.609835, y: -0.6654195, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0.012508869, y: -0.14384365}
   serializedVersion: 2
