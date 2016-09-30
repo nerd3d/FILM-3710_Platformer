@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
             _animator.setAnimation("Jump");
         }
 
-        velocity.x *= (1-slideFriction); // apply friction
+        velocity.x *= (1 - slideFriction); // apply friction
 
         velocity.y += gravity * Time.deltaTime; // apply gravity
 
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         float normalizedHealth = (float)currentHealth / (float)startingHealth;
-        GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(normalizedHealth * 256, 32);
+        //GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(normalizedHealth * 256, 32);
         if (currentHealth <= 0) // is player dead
             PlayerDeath();
     }
