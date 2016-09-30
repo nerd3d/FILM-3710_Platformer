@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 3;                 // player walk speed
     public float slideFriction = 0.2f;          // sliding friction for player
     public float jumpHeight = 2;                // Jump Height
-    public int health = 100;                    // Player Starting Health
+    public int startingHealth = 100;                    // Player Starting Health
 
     /// <summary>
     /// Class Start Function. Initializes Controllers and starts the CameraFollow
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         _animator = gameObject.GetComponent<AnimationController2D>();
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
 
-        currentHealth = health; // set starting health
+        currentHealth = startingHealth; // set starting health
     }
 
     /// <summary>
@@ -127,9 +127,10 @@ public class PlayerController : MonoBehaviour
         {
             PlayerFallDeath();
         }
-        else if (col.tag == "Damaging") // damage effect
+        else if (col.tag == "EnemyType1") // damage effect
         {
-            PlayerDamage(20);
+            Debug.Log("triggered!");
+            PlayerDamage(startingHealth - 10);
         }
     }
 
@@ -140,7 +141,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerDamage(float damage)
     {
         currentHealth -= damage;
-        float normalizedHealth = (float)currentHealth / (float)health;
+        float normalizedHealth = (float)currentHealth / (float)startingHealth;
         GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(normalizedHealth * 256, 32);
         if (currentHealth <= 0) // is player dead
             PlayerDeath();
