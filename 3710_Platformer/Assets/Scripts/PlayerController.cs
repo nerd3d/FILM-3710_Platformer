@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private AnimationController2D _animator;    // Animation Controller
     private float currentHealth;                // Protected Player Health
     private bool PlayerControl = true;          // Player input toggle
+    private bool isPlayer = true;               //restricts trigger collission code to player
 
     public GameObject gameOverPanel;
     public GameObject gameCamera;
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour
         _controller = gameObject.GetComponent<CharacterController2D>();
         _animator = gameObject.GetComponent<AnimationController2D>();
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
-
         currentHealth = startingHealth; // set starting health
     }
 
@@ -109,10 +109,12 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Damaging") // Damaging effect
+        if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
         {
-            PlayerDamage(20 * Time.deltaTime);
-
+            if (col.tag == "Damaging") // Damaging effect
+            {
+                PlayerDamage(20 * Time.deltaTime);
+            }
         }
 
     }
@@ -123,15 +125,18 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("enterTriger");
-        if (col.tag == "KillZ") // insta-kill effect
+        if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
         {
-            PlayerFallDeath();
-        }
-        else if (col.tag == "EnemyType1") // damage effect
-        {
-            Debug.Log("Damaged!");
-            PlayerDamage(startingHealth + 10);
+            Debug.Log("enterTrigger");
+            if (col.tag == "KillZ") // insta-kill effect
+            {
+                PlayerFallDeath();
+            }
+            else if (col.tag == "EnemyType1") // damage effect
+            {
+                Debug.Log("Damaged!");
+                PlayerDamage(startingHealth + 10);
+            }
         }
     }
 

@@ -16,10 +16,11 @@ public class Enemy : MonoBehaviour
     private AnimationController2D _animator;//unity animation controls
     private int currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
-
+    private bool isDead;//determines contactDamage and movement
+    private bool isEnemy;//restrict trigger collission code to enemy
 
     public GameObject player;//target this enemy will chase/attack
-    public int health = 1;  //initial hp of this enemy
+    public int startHP = 1;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 
     //may need a level manager for keeping track of enemies for player
@@ -37,7 +38,7 @@ public class Enemy : MonoBehaviour
 
         _controller = gameObject.GetComponent<CharacterController2D>();
         _animator = gameObject.GetComponent<AnimationController2D>();
-        currentHealth = health;
+        currentHealth = startHP;
         if(beginFacingRight)
             _animator.setFacing("Right");
         else
@@ -45,12 +46,17 @@ public class Enemy : MonoBehaviour
         cameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
         previousPosition = _controller.transform.position;
         previousPosition.x++;//offset previous position for first Update().
+        isDead = false;
+        isEnemy = true;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        _controller.move(AiMovement()*Time.deltaTime);
+        if(!isDead)
+        {
+            _controller.move(AiMovement() * Time.deltaTime);
+        }
 	}
     /// <summary>
     /// Basic AIMovement is limited to x vector.
@@ -119,5 +125,34 @@ public class Enemy : MonoBehaviour
         velocity.x = -moveSpeed;
         //_animator.setAnimation("Walk"); //not in whitebox version
         _animator.setFacing("Left");
+    }
+    /// <summary>
+    /// Trigger boxes with an "enter" effect will use this function
+    /// </summary>
+    /// <param name="col">Collider with effect</param>
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(isEnemy)//restrict following code to enemy on trigger collission
+        {
+            if (col.tag == "PlayerClub") // damage effect
+            {
+                this.currentHealth--;//takes 1 damage
+                this.checkDeath();
+            }
+        }
+    }
+    /// <summary>
+    /// Checks current health, setting dead boolean when health hits 0.
+    /// Also sets contactDamage to 0, which player should be reading to decide damage
+    /// taken upon enemy contact.
+    /// </summary>
+    private void checkDeath()
+    {
+        if(currentHealth <= 0)
+        {
+            Debug.Log("EnemyDead!");
+            isDead = true;
+            contactDamage = 0;
+        }
     }
 }
