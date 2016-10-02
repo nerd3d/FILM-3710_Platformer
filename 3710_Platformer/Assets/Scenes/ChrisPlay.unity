@@ -134,6 +134,15 @@ Prefab:
       propertyPath: gameCamera
       value: 
       objectReference: {fileID: 258839018}
+    - target: {fileID: 61000010860627498, guid: b93fbd45a4c06bf4d88880961542cd2b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013340088728, guid: b93fbd45a4c06bf4d88880961542cd2b, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b93fbd45a4c06bf4d88880961542cd2b, type: 2}
   m_IsPrefabParent: 0
@@ -174,16 +183,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012962197974, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_Name
       value: Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011143889854, guid: df9360ddda0a9f843b437521a885f790,
-        type: 2}
-      propertyPath: triggerMask.m_Bits
-      value: 4097
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df9360ddda0a9f843b437521a885f790, type: 2}
@@ -431,7 +435,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &502151172
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +638,7 @@ GameObject:
   - 212: {fileID: 695221181}
   - 61: {fileID: 695221180}
   m_Layer: 12
-  m_Name: TriggerBoxTest
+  m_Name: PlayerAttackBox
   m_TagString: PlayerClub
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,9 +655,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.13009846, y: -0.016262293}
+  m_Offset: {x: 0.20495768, y: 0.020966053}
   serializedVersion: 2
-  m_Size: {x: 0.7398033, y: 0.9674754}
+  m_Size: {x: 0.66534615, y: 0.8930187}
 --- !u!212 &695221181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -694,7 +698,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695221179}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8167499, y: 0.25588033, z: -0.027064024}
+  m_LocalPosition: {x: -0.93, y: 0.25588033, z: -0.027064024}
   m_LocalScale: {x: -2.5588028, y: 2.5588028, z: 2.5588028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1246,7 +1250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012962197974, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_Name
@@ -1256,6 +1260,16 @@ Prefab:
         type: 2}
       propertyPath: beginFacingRight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011143889854, guid: df9360ddda0a9f843b437521a885f790,
+        type: 2}
+      propertyPath: triggerMask.m_Bits
+      value: 12288
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011143889854, guid: df9360ddda0a9f843b437521a885f790,
+        type: 2}
+      propertyPath: platformMask.m_Bits
+      value: 13056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df9360ddda0a9f843b437521a885f790, type: 2}
