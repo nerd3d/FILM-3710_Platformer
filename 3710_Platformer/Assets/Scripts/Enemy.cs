@@ -16,10 +16,10 @@ public class Enemy : MonoBehaviour
     private AnimationController2D _animator;//unity animation controls
     private int currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
-    private bool isDead;//determines contactDamage and movement
+    public bool isDead;//determines contactDamage and movement
     private bool isEnemy;//restrict trigger collission code to enemy
 
-    public GameObject player;//target this enemy will chase/attack
+    //public GameObject player;//target this enemy will chase/attack
     public int startHP = 1;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 
@@ -31,7 +31,13 @@ public class Enemy : MonoBehaviour
     public float gravity = -35;
 
     private Vector3 previousPosition;
-
+    /// <summary>
+    /// cunstructor to use in EnemyManager
+    /// </summary>
+    public Enemy()
+    {
+        
+    }
     // Use this for initialization
     void Start ()
     {
@@ -45,7 +51,7 @@ public class Enemy : MonoBehaviour
             _animator.setFacing("Left");
         cameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
         previousPosition = _controller.transform.position;
-        previousPosition.x++;//offset previous position for first Update().
+        previousPosition.y = -1000;//offset previous position for first Update().
         isDead = false;
         isEnemy = true;
     }
@@ -56,6 +62,10 @@ public class Enemy : MonoBehaviour
         if(!isDead)
         {
             _controller.move(AiMovement() * Time.deltaTime);
+        }
+        else
+        {
+            removeEnemy();
         }
 	}
     /// <summary>
@@ -150,9 +160,15 @@ public class Enemy : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            Debug.Log("EnemyDead!");
             isDead = true;
             contactDamage = 0;
         }
+    }
+    /// <summary>
+    /// Destroys this gameObject after 1 second.
+    /// </summary>
+    void removeEnemy()
+    {
+        Destroy(this.gameObject,1);
     }
 }
