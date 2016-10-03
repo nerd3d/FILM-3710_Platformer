@@ -151,8 +151,10 @@ public class PlayerController : MonoBehaviour
     private void PlayerDamage(float damage)
     {
         currentHealth -= damage;
+        if (currentHealth < 0)
+            currentHealth = 0;
         float normalizedHealth = (float)currentHealth / (float)startingHealth;
-        GameObject.Find("Health").GetComponent<Transform>().localScale = new Vector3(normalizedHealth, 0.95, 1);
+        GameObject.Find("Health").GetComponent<Transform>().localScale = new Vector3(normalizedHealth, 0.95f, 1);
         if (currentHealth <= 0) // is player dead
             PlayerDeath();
     }

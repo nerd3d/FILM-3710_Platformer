@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011067912334, guid: b93fbd45a4c06bf4d88880961542cd2b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011848420542, guid: b93fbd45a4c06bf4d88880961542cd2b,
         type: 2}
@@ -250,7 +250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012962197974, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_Name
@@ -692,7 +692,7 @@ GameObject:
   - 61: {fileID: 695221180}
   m_Layer: 12
   m_Name: PlayerAttackBox
-  m_TagString: PlayerClub
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,12 +750,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695221179}
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93, y: 0.25588033, z: -0.027064024}
-  m_LocalScale: {x: -2.5588028, y: 2.5588028, z: 2.5588028}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.62, y: -1.23, z: -0.010576831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 651962981}
+  m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &701688827
 GameObject:
@@ -1087,7 +1087,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012962197974, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
       propertyPath: m_Name
@@ -1511,4 +1511,4 @@ Transform:
   - {fileID: 702009334}
   - {fileID: 1688548291}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
