@@ -1093,11 +1093,6 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (0)
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011381320150, guid: df9360ddda0a9f843b437521a885f790,
-        type: 2}
-      propertyPath: beginFacingRight
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   m_IsPrefabParent: 0
@@ -1512,3 +1507,25 @@ Transform:
   - {fileID: 1688548291}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &2081092373 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013340088728, guid: b93fbd45a4c06bf4d88880961542cd2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 79039834}
+--- !u!95 &2081092380
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081092373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09eb30fbfe6bf04429576834ab0a3481, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

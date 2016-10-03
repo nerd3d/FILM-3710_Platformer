@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000011143889854}
   - 114: {fileID: 114000013289571432}
   - 114: {fileID: 114000011381320150}
+  - 95: {fileID: 95000013676209730}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: EnemyType1
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011543400986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.33, y: 1.27, z: 0}
+  m_LocalPosition: {x: 1.71, y: 2.16, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -73,9 +74,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.1231761, y: -0.21992731}
+  m_Offset: {x: 0.1231761, y: -0.18851256}
   serializedVersion: 2
-  m_Size: {x: 1.8220508, y: 0.75381327}
+  m_Size: {x: 1.8220508, y: 0.6909838}
+--- !u!95 &95000013676209730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011543400986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb89b1148f693484c9fa3bf0c1ac5f47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011143889854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +158,7 @@ MonoBehaviour:
   startHP: 1
   contactDamage: 10
   moveSpeed: 1.5
-  beginFacingRight: 1
+  beginFacingRight: 0
   gravity: -35
 --- !u!114 &114000013289571432
 MonoBehaviour:

@@ -85,7 +85,8 @@ public class PlayerController : MonoBehaviour
         // Use Spacebar as attack
         else if (Input.GetAxis("Jump") > 0)
         {
-            GetComponentInChildren<Collider2D>().isTrigger = true;
+            if (_controller.isGrounded)
+                _animator.setAnimation("ClubAttack");
         }
         // else, player is idle
         else
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
         {
-            if (col.tag == "Damaging") // Damaging effect
+            if (col.tag == "EnemyType1") // Damaging effect
             {
                 PlayerDamage(20 * Time.deltaTime);
             }
@@ -139,6 +140,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (col.tag == "EnemyType1") // damage effect
             {
+                _animator.setAnimation("Damaged");
                 PlayerDamage(20);
             }
         }
