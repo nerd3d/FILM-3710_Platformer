@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour
                 _animator.setAnimation("Walk");
             _animator.setFacing("Right");
         }
+        // Use Spacebar as attack
+        else if (Input.GetAxis("Jump") > 0)
+        {
+            GetComponentInChildren<Collider2D>().isTrigger = true;
+        }
         // else, player is idle
         else
         {
@@ -134,8 +139,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (col.tag == "EnemyType1") // damage effect
             {
-                Debug.Log("Damaged!");
-                PlayerDamage(startingHealth + 10);
+                PlayerDamage(20);
             }
         }
     }
@@ -148,7 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         float normalizedHealth = (float)currentHealth / (float)startingHealth;
-        //GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(normalizedHealth * 256, 32);
+        GameObject.Find("Health").GetComponent<Transform>().localScale = new Vector3(normalizedHealth, 0.95, 1);
         if (currentHealth <= 0) // is player dead
             PlayerDeath();
     }

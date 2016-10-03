@@ -146,8 +146,8 @@ public class Enemy : MonoBehaviour
         {
             if (col.tag == "PlayerClub") // damage effect
             {
-                this.currentHealth--;//takes 1 damage
-                this.checkDeath();
+                this.currentHealth--; //takes 1 damage
+                this.checkDeath(); 
             }
         }
     }
