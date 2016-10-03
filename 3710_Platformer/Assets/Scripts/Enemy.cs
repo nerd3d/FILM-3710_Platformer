@@ -31,13 +31,7 @@ public class Enemy : MonoBehaviour
     public float gravity = -35;
 
     private Vector3 previousPosition;
-    /// <summary>
-    /// cunstructor to use in EnemyManager
-    /// </summary>
-    public Enemy()
-    {
-        
-    }
+
     // Use this for initialization
     void Start ()
     {
