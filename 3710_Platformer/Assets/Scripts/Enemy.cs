@@ -134,7 +134,7 @@ public class Enemy : MonoBehaviour
     /// Trigger boxes with an "enter" effect will use this function
     /// </summary>
     /// <param name="col">Collider with effect</param>
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if(isEnemy)//restrict following code to enemy on trigger collission
         {
@@ -163,6 +163,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     void removeEnemy()
     {
+        tag = "Untagged";
         Destroy(this.gameObject,1);
     }
 }

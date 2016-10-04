@@ -25,6 +25,17 @@ public class PlayerController : MonoBehaviour
     public float slideFriction = 0.2f;          // sliding friction for player
     public float jumpHeight = 2;                // Jump Height
     public int startingHealth = 100;                    // Player Starting Health
+    
+
+    public string getFacing (){ return _animator.getFacing(); } 
+
+    public bool isAttacking {
+        get {
+            if (Input.GetAxis("Jump") > 0)
+                return true;
+            return false;
+        }
+    }
 
     /// <summary>
     /// Class Start Function. Initializes Controllers and starts the CameraFollow
@@ -166,7 +177,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerDeath()
     {
-        _animator.setAnimation("PlayerDeath");
+        _animator.setAnimation("Damaged");
         PlayerControl = false;
         //gameOverPanel.SetActive(true); // Disabled until GameOver Panel is implemented
     }
