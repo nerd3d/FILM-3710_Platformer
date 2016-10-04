@@ -156,6 +156,7 @@ public class Enemy : MonoBehaviour
         {
             isDead = true;
             contactDamage = 0;
+            _animator.setAnimation("SlinkDeath");
         }
     }
     /// <summary>
