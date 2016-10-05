@@ -27,16 +27,6 @@ public class PlayerController : MonoBehaviour
     public int startingHealth = 100;                    // Player Starting Health
     
 
-    public string getFacing (){ return _animator.getFacing(); } 
-
-    public bool isAttacking {
-        get {
-            if (Input.GetAxis("Jump") > 0)
-                return true;
-            return false;
-        }
-    }
-
     /// <summary>
     /// Class Start Function. Initializes Controllers and starts the CameraFollow
     /// </summary>
@@ -46,7 +36,7 @@ public class PlayerController : MonoBehaviour
         _animator = gameObject.GetComponent<AnimationController2D>();
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currentHealth = startingHealth; // set starting health
-    }
+}
 
     /// <summary>
     /// Frame Update method. Called every frame
@@ -181,7 +171,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.setAnimation("Damaged");
         PlayerControl = false;
-        //gameOverPanel.SetActive(true); // Disabled until GameOver Panel is implemented
+        gameOverPanel.SetActive(true); 
     }
 
     /// <summary>
@@ -192,6 +182,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = 0;
         GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(0, 32);
         gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
-        //gameOverPanel.SetActive(true); // Disabled until GameOver Panel is implemented
+        gameOverPanel.SetActive(true); 
     }
 }
