@@ -24,7 +24,8 @@ public class Enemy : MonoBehaviour
 
     //contactDamage may need to be handled by trigger, 
     //may need a level manager for keeping track of enemies for player
-    public int contactDamage = 1;//damage player takes when touched by this enemy
+    public int contactDamage = 10;//damage player takes when touched by this enemy
+    public int stayDamage = 20;//DPS player takes when staying in contact with this enemy
 
     public float moveSpeed = 1;//movement speed of this enemy
     public bool beginFacingRight = true;

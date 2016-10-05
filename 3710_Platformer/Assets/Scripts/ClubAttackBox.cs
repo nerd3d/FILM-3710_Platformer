@@ -4,11 +4,9 @@ using System.Collections;
 public class ClubAttackBox : MonoBehaviour {
 
     public GameObject player;
-    private CharacterController pControl;
 
 	// Use this for initialization
 	void Start () {
-        pControl = player.gameObject.GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame

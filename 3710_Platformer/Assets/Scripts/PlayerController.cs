@@ -130,7 +130,8 @@ public class PlayerController : MonoBehaviour
         {
             if (col.tag == "EnemyType1") // Damaging effect
             {
-                PlayerDamage(20 * Time.deltaTime);
+                int dmg = col.GetComponent<Enemy>().stayDamage;
+                PlayerDamage(dmg * Time.deltaTime);
             }
         }
 
@@ -152,7 +153,8 @@ public class PlayerController : MonoBehaviour
             else if (col.tag == "EnemyType1") // damage effect
             {
                 _animator.setAnimation("Damaged");
-                PlayerDamage(20);
+                int dmg = col.GetComponent<Enemy>().contactDamage;
+                PlayerDamage(dmg);
             }
         }
     }
