@@ -22,6 +22,6 @@ public class GameManager : MonoBehaviour {
 
     public void ExitLevel()
     {
-
+        Application.Quit();
     }
 }

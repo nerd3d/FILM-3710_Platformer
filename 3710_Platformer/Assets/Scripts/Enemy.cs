@@ -14,13 +14,13 @@ public class Enemy : MonoBehaviour
 {
     private CharacterController2D _controller;//unity movement controls
     private AnimationController2D _animator;//unity animation controls
-    private int currentHealth = 0;//current health of enemy at any given time
+    private float currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
     public bool isDead;//determines contactDamage and movement
     private bool isEnemy;//restrict trigger collission code to enemy
 
     //public GameObject player;//target this enemy will chase/attack
-    public int startHP = 1;  //initial hp of this enemy
+    public int startHP = 50;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 
     //may need a level manager for keeping track of enemies for player
@@ -141,7 +141,7 @@ public class Enemy : MonoBehaviour
         {
             if (col.tag == "PlayerClub") // damage effect
             {
-                this.currentHealth--; //takes 1 damage
+                this.currentHealth-= 5*Time.deltaTime; //takes 5 DpS
                 this.checkDeath(); 
             }
         }
