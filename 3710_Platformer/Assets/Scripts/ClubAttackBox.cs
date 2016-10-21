@@ -11,7 +11,7 @@ public class ClubAttackBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+
         transform.position = player.transform.position; // follow the player
 
         if (player.transform.localScale.x > 0)              // player is facing left
@@ -19,9 +19,11 @@ public class ClubAttackBox : MonoBehaviour {
         else if (player.transform.localScale.x < 0)         // player is facing right
             transform.localScale = new Vector3(1, 1, 1);
 
-        if (Input.GetAxis("Jump")>0)
-            tag = "PlayerClub";
+        if (player.gameObject.GetComponent<AnimationController2D>().getAnimation() == "ClubAttack")
+            GetComponent<Collider2D>().enabled = true;
+        //tag = "PlayerClub";
         else
-            tag = "Untagged";
-	}
+            GetComponent<Collider2D>().enabled = false;
+        //tag = "Untagged";
+    }
 }

@@ -2116,20 +2116,24 @@ Prefab:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 731065026}
-    - target: {fileID: 212000014195930722, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000012072806594, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.39889416
+      value: -0.27766752
       objectReference: {fileID: 0}
-    - target: {fileID: 61000012072806594, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
         type: 2}
       propertyPath: m_Size.y
-      value: 3.6354704
+      value: 1.0504198
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010874118348, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
+      propertyPath: m_TagString
+      value: PlayerClub
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}

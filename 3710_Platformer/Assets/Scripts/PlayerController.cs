@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 3;                 // player walk speed
     public float slideFriction = 0.2f;          // sliding friction for player
     public float jumpHeight = 2;                // Jump Height
-    public int startingHealth = 100;                    // Player Starting Health
+    public int startingHealth = 100;            // Player Starting Health
     
 
     /// <summary>
@@ -44,8 +44,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (PlayerControl)
-            _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
+        if (PlayerControl && _animator.getAnimation()!="ClubAttack")
+        {
+                _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
+        }
     }
 
     /// <summary>
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
             if (this.transform.parent != null)
                 transform.parent = null;
         }
-
+        
         // if horizontal input is negative, move left
         if (Input.GetAxis("Horizontal") < 0)
         { // Move Left
@@ -84,10 +86,12 @@ public class PlayerController : MonoBehaviour
             _animator.setFacing("Right");
         }
         // Use Spacebar as attack
-        else if (Input.GetAxis("Jump") > 0)
+        else if (Input.GetAxis("Fire1") > 0)
         {
-            if (_controller.isGrounded)
+            if (_controller.isGrounded && _animator.getAnimation() != "ClubAttack")
+            {
                 _animator.setAnimation("ClubAttack");
+            }
         }
         // else, player is idle
         else
@@ -97,11 +101,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // if jump is pressed & player is grounded, player jumps
-        if (Input.GetAxis("Vertical") > 0 && _controller.isGrounded)
+        if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
-            _animator.setAnimation("Jump");
         }
+
+        if (!_controller.isGrounded)
+            _animator.setAnimation("Jump");
 
         velocity.x *= (1 - slideFriction); // apply friction
 
@@ -135,14 +141,16 @@ public class PlayerController : MonoBehaviour
     {
         if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
         {
-            Debug.Log("enterTrigger");
             if (col.tag == "KillZ") // insta-kill effect
             {
                 PlayerFallDeath();
             }
             else if (col.tag == "EnemyType1") // damage effect
             {
-                _animator.setAnimation("Damaged");
+                if (PlayerControl)
+                {
+                    _animator.setAnimation("Damaged");
+                }
                 int dmg = col.GetComponent<Enemy>().contactDamage;
                 PlayerDamage(dmg);
             }
@@ -169,7 +177,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerDeath()
     {
-        _animator.setAnimation("Damaged");
+        _animator.setAnimation("Death");
         PlayerControl = false;
         gameOverPanel.SetActive(true); 
     }
