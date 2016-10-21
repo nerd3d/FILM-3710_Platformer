@@ -14,8 +14,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController2D _controller;  // Prime31 2D controller
     private AnimationController2D _animator;    // Animation Controller
     private float currentHealth;                // Protected Player Health
-    private bool PlayerControl = true;          // Player input toggle
-    private bool isPlayer = true;               //restricts trigger collission code to player
+    private bool playerAlive = true;          // Player input toggle
+    private bool isPlayer = true;               // restricts trigger collission code to player
+    private int knockback = 0;                  // knockback Force
+    private bool knockbackLeft;                 // Direction of knockback
+    private float knockbackTime = 0.3f;         // Durration of knockback force
+    private float knockbackCount = 0;           // knockback Counter
 
     public GameObject gameOverPanel;
     public GameObject gameCamera;
@@ -36,17 +40,30 @@ public class PlayerController : MonoBehaviour
         _animator = gameObject.GetComponent<AnimationController2D>();
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currentHealth = startingHealth; // set starting health
-}
+    }
 
     /// <summary>
     /// Frame Update method. Called every frame
     /// </summary>
     void Update()
     {
-
-        if (PlayerControl && _animator.getAnimation()!="ClubAttack")
+        if (knockbackCount > 0)
         {
-                _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
+            if (knockbackLeft)
+                _controller.move(new Vector3(-knockback, knockback, 0) * Time.deltaTime);
+            else
+                _controller.move(new Vector3(knockback, knockback, 0) * Time.deltaTime);
+            knockbackCount -= Time.deltaTime;
+        }else if (playerAlive && _animator.getAnimation()!="ClubAttack")
+        {
+            _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
+        }else if(!playerAlive)
+        {
+            Vector3 velocity = _controller.velocity;
+            velocity.x *= (1 - slideFriction);
+            velocity.y += gravity * Time.deltaTime;
+            _controller.move(velocity * Time.deltaTime);
+            PlayerDeath();
         }
     }
 
@@ -68,7 +85,7 @@ public class PlayerController : MonoBehaviour
             if (this.transform.parent != null)
                 transform.parent = null;
         }
-        
+
         // if horizontal input is negative, move left
         if (Input.GetAxis("Horizontal") < 0)
         { // Move Left
@@ -85,14 +102,6 @@ public class PlayerController : MonoBehaviour
                 _animator.setAnimation("Walk");
             _animator.setFacing("Right");
         }
-        // Use Spacebar as attack
-        else if (Input.GetAxis("Fire1") > 0)
-        {
-            if (_controller.isGrounded && _animator.getAnimation() != "ClubAttack")
-            {
-                _animator.setAnimation("ClubAttack");
-            }
-        }
         // else, player is idle
         else
         {
@@ -100,14 +109,27 @@ public class PlayerController : MonoBehaviour
                 _animator.setAnimation("Idle");
         }
 
+        // if in the air, set fump/fall animation
+        if (!_controller.isGrounded)
+        {
+            _animator.setAnimation("Jump");
+        }
+
+        // Use Spacebar as attack
+        if (Input.GetAxis("Fire1") > 0)
+        {
+            if (_controller.isGrounded && _animator.getAnimation() != "ClubAttack")
+            {
+                _animator.setAnimation("ClubAttack");
+            }
+        }
+        
+
         // if jump is pressed & player is grounded, player jumps
         if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
         }
-
-        if (!_controller.isGrounded)
-            _animator.setAnimation("Jump");
 
         velocity.x *= (1 - slideFriction); // apply friction
 
@@ -122,12 +144,12 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerStay2D(Collider2D col)
     {
-        if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
+        // in case player becomes vulnerable while touching enemy
+        if (isPlayer && knockbackCount <= 0)
         {
-            if (col.tag == "EnemyType1") // Damaging effect
+            if (col.tag == "EnemyType1") // damage effect
             {
-                int dmg = col.GetComponent<Enemy>().stayDamage;
-                PlayerDamage(dmg * Time.deltaTime);
+                OnTriggerEnter2D(col);
             }
         }
 
@@ -139,7 +161,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(isPlayer)//(added by adam) restricts following trigger collission code to the player.
+        if(isPlayer && knockbackCount<=0)//(added by adam) restricts following trigger collission code to the player.
         {
             if (col.tag == "KillZ") // insta-kill effect
             {
@@ -147,12 +169,17 @@ public class PlayerController : MonoBehaviour
             }
             else if (col.tag == "EnemyType1") // damage effect
             {
-                if (PlayerControl)
+                if (playerAlive)
                 {
+                    Enemy enemy = col.gameObject.GetComponent<Enemy>();
+                    knockback = enemy.knockback;
+                    knockbackLeft = (col.transform.position.x - transform.position.x) > 0;
+                    knockbackCount = knockbackTime;
+
                     _animator.setAnimation("Damaged");
+                    int dmg = enemy.contactDamage;
+                    PlayerDamage(dmg);
                 }
-                int dmg = col.GetComponent<Enemy>().contactDamage;
-                PlayerDamage(dmg);
             }
         }
     }
@@ -177,8 +204,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerDeath()
     {
-        _animator.setAnimation("Death");
-        PlayerControl = false;
+        if(_controller.isGrounded)
+            _animator.setAnimation("Death");
+        playerAlive = false;
         gameOverPanel.SetActive(true); 
     }
 
