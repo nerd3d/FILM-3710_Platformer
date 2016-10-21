@@ -299,6 +299,11 @@ Prefab:
       propertyPath: m_Name
       value: PlatformSpike (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011424180860, guid: 038fd3ae2f3942d45b0546efd8cd0e36,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 038fd3ae2f3942d45b0546efd8cd0e36, type: 2}
   m_IsPrefabParent: 0
@@ -1613,6 +1618,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011424180860, guid: 038fd3ae2f3942d45b0546efd8cd0e36,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 038fd3ae2f3942d45b0546efd8cd0e36, type: 2}
   m_IsPrefabParent: 0
@@ -2111,6 +2121,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61000012072806594, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.39889416
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000012072806594, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 3.6354704
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
   m_IsPrefabParent: 0
@@ -2153,6 +2173,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010560567322, guid: 2581de0a3e401e64a99a95b339317d71,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d80e5a76de27d4cda98c5f6afcb86a04,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2581de0a3e401e64a99a95b339317d71, type: 2}
   m_IsPrefabParent: 0
