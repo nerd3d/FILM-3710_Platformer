@@ -13,7 +13,15 @@ public class EnemySpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        spawnPoint.SetActive(false);
         StartCoroutine(spawnEnemies());
+
+        //We wait for 2 seconds after spawn animation starts to restart the spawning loop,
+        //so we subtract that amount of time from spawnFrequency
+        if(spawnFrequency > 2)
+        {
+            spawnFrequency -= 2;
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +39,11 @@ public class EnemySpawner : MonoBehaviour
 
             Vector3 position = new Vector3(i * 2.0f, 0.55f, 2.0f);
             yield return new WaitForSeconds(spawnFrequency);
+            spawnPoint.SetActive(true);//show portal animation
+            yield return new WaitForSeconds(1);
             GameObject enemy = Instantiate(enemyType,spawnPoint.transform.position,Quaternion.identity) as GameObject;
+            yield return new WaitForSeconds(1);
+            spawnPoint.SetActive(false);//hide portal animation
         }
     }
 }
