@@ -86,6 +86,19 @@ public class PlayerController : MonoBehaviour
                 transform.parent = null;
         }
 
+        // Use Spacebar as attack
+        if (Input.GetAxis("Fire1") > 0 && _controller.isGrounded)
+        {
+            if (_animator.getAnimation() != "ClubAttack")
+            {
+                _animator.setAnimation("ClubAttack");
+            }
+        }else
+        // if jump is pressed & player is grounded, player jumps
+        if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
+        } else 
         // if horizontal input is negative, move left
         if (Input.GetAxis("Horizontal") < 0)
         { // Move Left
@@ -114,23 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.setAnimation("Jump");
         }
-
-        // Use Spacebar as attack
-        if (Input.GetAxis("Fire1") > 0)
-        {
-            if (_controller.isGrounded && _animator.getAnimation() != "ClubAttack")
-            {
-                _animator.setAnimation("ClubAttack");
-            }
-        }
         
-
-        // if jump is pressed & player is grounded, player jumps
-        if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
-        }
-
         velocity.x *= (1 - slideFriction); // apply friction
 
         velocity.y += gravity * Time.deltaTime; // apply gravity
