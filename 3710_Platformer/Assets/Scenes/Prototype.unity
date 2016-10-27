@@ -2132,6 +2132,31 @@ Prefab:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 731065026}
+    - target: {fileID: 212000012636850820, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012636850820, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012636850820, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012636850820, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013575889284, guid: b8fd77bcb4b43b94187ed849b84e3a20,
+        type: 2}
+      propertyPath: damageDownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
   m_IsPrefabParent: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using Prime31;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// This class is meant to control the player character.
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private bool knockbackLeft;                 // Direction of knockback
     private float knockbackTime = 0.3f;         // Durration of knockback force
     private float knockbackCount = 0;           // knockback Counter
+    private float invulnerable = 0;
+    private SpriteRenderer _sprite;
+
 
     public GameObject gameOverPanel;
     public GameObject gameCamera;
@@ -29,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public float slideFriction = 0.2f;          // sliding friction for player
     public float jumpHeight = 2;                // Jump Height
     public int startingHealth = 100;            // Player Starting Health
-    
+    public int damageDownTime = 1;                // Invulnerablility time after taking damage
 
     /// <summary>
     /// Class Start Function. Initializes Controllers and starts the CameraFollow
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
         _animator = gameObject.GetComponent<AnimationController2D>();
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currentHealth = startingHealth; // set starting health
+        _sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -65,6 +70,21 @@ public class PlayerController : MonoBehaviour
             _controller.move(velocity * Time.deltaTime);
             PlayerDeath();
         }
+        if (invulnerable > 0)
+        {
+            tickInvulnerability();
+        }
+        else if (!_sprite.enabled)
+        {
+            _sprite.enabled = true;
+        }
+    }
+
+    private void tickInvulnerability()
+    {
+        _sprite.enabled = !_sprite.enabled;
+
+        invulnerable -= Time.deltaTime;
     }
 
     /// <summary>
@@ -93,7 +113,16 @@ public class PlayerController : MonoBehaviour
             {
                 _animator.setAnimation("ClubAttack");
             }
-        }else
+            if (Input.GetAxis("Horizontal") < 0)
+            { // Face Left
+                _animator.setFacing("Left");
+            }
+            else if (Input.GetAxis("Horizontal") > 0)
+            { // Face Right
+                _animator.setFacing("Right");
+            }
+        }
+        else
         // if jump is pressed & player is grounded, player jumps
         if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
         {
@@ -142,7 +171,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerStay2D(Collider2D col)
     {
         // in case player becomes vulnerable while touching enemy
-        if (isPlayer && knockbackCount <= 0)
+        if (isPlayer && invulnerable <= 0)
         {
             if (col.tag == "EnemyType1") // damage effect
             {
@@ -158,7 +187,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="col">Collider with effect</param>
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(isPlayer && knockbackCount<=0)//(added by adam) restricts following trigger collission code to the player.
+        if(isPlayer && invulnerable<=0)//(added by adam) restricts following trigger collission code to the player.
         {
             if (col.tag == "KillZ") // insta-kill effect
             {
@@ -172,6 +201,7 @@ public class PlayerController : MonoBehaviour
                     knockback = enemy.knockback;
                     knockbackLeft = (col.transform.position.x - transform.position.x) > 0;
                     knockbackCount = knockbackTime;
+                    invulnerable = damageDownTime;
 
                     _animator.setAnimation("Damaged");
                     int dmg = enemy.contactDamage;
