@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyType1
   - PlayerClub
+  - Pickup
   layers:
   - Default
   - TransparentFX

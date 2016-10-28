@@ -256,4 +256,12 @@ public class PlayerController : MonoBehaviour
         gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
         gameOverPanel.SetActive(true); 
     }
+
+    // Adds an amount of health to the players total
+    public void addToHealth(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > startingHealth)
+            currentHealth = startingHealth;
+    }
 }
