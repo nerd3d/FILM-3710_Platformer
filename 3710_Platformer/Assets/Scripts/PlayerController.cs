@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private float knockbackTime = 0.3f;         // Durration of knockback force
     private float knockbackCount = 0;           // knockback Counter
     private float invulnerable = 0;
+    private int flickerFrames = 0;
+    private int flickerTotal = 3;
     private SpriteRenderer _sprite;
 
 
@@ -82,7 +84,14 @@ public class PlayerController : MonoBehaviour
 
     private void tickInvulnerability()
     {
-        _sprite.enabled = !_sprite.enabled;
+        if (flickerFrames <= 0)
+        {
+            _sprite.enabled = !_sprite.enabled;
+            flickerFrames = flickerTotal;
+        }else
+        {
+            flickerFrames--;
+        }
 
         invulnerable -= Time.deltaTime;
     }
