@@ -20,11 +20,11 @@ public class GameManager : MonoBehaviour {
 
     public void ExitLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void StartLevel1()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void ExitGame()
     {
