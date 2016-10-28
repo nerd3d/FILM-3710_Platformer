@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   startHP: 1
-  contactDamage: 50
-  stayDamage: 20
+  contactDamage: 1
+  stayDamage: 0
   knockback: 5
   moveSpeed: 1.5
   beginFacingRight: 1

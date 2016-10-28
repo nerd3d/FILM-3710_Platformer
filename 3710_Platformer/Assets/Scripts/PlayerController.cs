@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController2D _controller;  // Prime31 2D controller
     private AnimationController2D _animator;    // Animation Controller
-    private float currentHealth;                // Protected Player Health
+    private int currentHealth;                // Protected Player Health
     private bool playerAlive = true;          // Player input toggle
     private bool isPlayer = true;               // restricts trigger collission code to player
     private int knockback = 0;                  // knockback Force
@@ -224,13 +224,11 @@ public class PlayerController : MonoBehaviour
     /// Handles Player damage recieved
     /// </summary>
     /// <param name="damage">Ammount of damage recived</param>
-    private void PlayerDamage(float damage)
+    private void PlayerDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth < 0)
             currentHealth = 0;
-        float normalizedHealth = (float)currentHealth / (float)startingHealth;
-        GameObject.Find("Health").GetComponent<Transform>().localScale = new Vector3(normalizedHealth, 0.95f, 1);
         if (currentHealth <= 0) // is player dead
             PlayerDeath();
     }
@@ -252,8 +250,12 @@ public class PlayerController : MonoBehaviour
     private void PlayerFallDeath()
     {
         currentHealth = 0;
-        GameObject.Find("Health").GetComponent<RectTransform>().sizeDelta = new Vector2(0, 32);
         gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
         gameOverPanel.SetActive(true); 
+    }
+
+    public int getCurrentHealth()
+    {
+        return currentHealth;
     }
 }
