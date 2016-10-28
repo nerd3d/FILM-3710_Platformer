@@ -281,6 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759e191a13374dc4f950149b4ce056f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealAmount: 40
+  bounceHeight: 10
 --- !u!61 &137082435
 BoxCollider2D:
   m_ObjectHideFlags: 0
