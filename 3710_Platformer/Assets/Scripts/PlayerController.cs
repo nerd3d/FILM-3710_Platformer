@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject gameCamera;
-    public GameObject healthBar;
     public float gravity = -35;                 // gravity for player
     public float walkSpeed = 3;                 // player walk speed
     public float slideFriction = 0.2f;          // sliding friction for player
@@ -257,5 +256,14 @@ public class PlayerController : MonoBehaviour
     public int getCurrentHealth()
     {
         return currentHealth;
+    }
+
+    public void addToHealth(int amount)
+    {
+        currentHealth += amount;
+        if(currentHealth > startingHealth)
+        {
+            currentHealth = startingHealth;
+        }
     }
 }

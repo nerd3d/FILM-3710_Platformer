@@ -23,7 +23,7 @@ public class HealthPickup : MonoBehaviour {
 	}
 
     // If player collides and isn't max health, heal'em up
-    private void OnTriggerEnter(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(isPickup && col.tag == "Player")
         {
