@@ -10,6 +10,7 @@ public class HealthPickup : MonoBehaviour {
     private Transform _controller;
     private float bounceFrame = 0;
     private bool falling = false;
+    private bool isPickup = true;
 
     // Use this for initialization
     void Start () {
@@ -21,9 +22,10 @@ public class HealthPickup : MonoBehaviour {
         animatePosition();
 	}
 
+    // If player collides and isn't max health, heal'em up
     private void OnTriggerEnter(Collider2D col)
     {
-        if(col.tag == "Player")
+        if(isPickup && col.tag == "Player")
         {
             PlayerController thePlayer = col.gameObject.GetComponent<PlayerController>();
             if(thePlayer.getCurrentHealth() < thePlayer.startingHealth)
