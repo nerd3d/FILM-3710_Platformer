@@ -424,7 +424,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0.5093332, y: -1.211665}
   serializedVersion: 2
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035b9aba561e44c48aec700c6328a898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 55910944}
+  target: {fileID: 4000012345157428}
   damping: 0.1
   lookAheadFactor: 0.5
   lookAheadReturnSpeed: 0.5
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43dde57b8d92dd4c8c5dc830e6b0f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 54196128}
+  player: {fileID: 1000011598946336}
 --- !u!124 &124000011087428694
 Behaviour:
   m_ObjectHideFlags: 1

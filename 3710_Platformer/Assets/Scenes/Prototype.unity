@@ -1270,21 +1270,6 @@ Prefab:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 731065026}
-    - target: {fileID: 114000010216280240, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1806041081}
-    - target: {fileID: 114000013909556166, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1806041080}
-    - target: {fileID: 61000012072806594, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
   m_IsPrefabParent: 0
@@ -2030,16 +2015,6 @@ Transform:
   - {fileID: 364120727}
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1 &1806041080 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011598946336, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-    type: 2}
-  m_PrefabInternal: {fileID: 1016176578}
---- !u!4 &1806041081 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012345157428, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-    type: 2}
-  m_PrefabInternal: {fileID: 1016176578}
 --- !u!1 &1892299512
 GameObject:
   m_ObjectHideFlags: 0
