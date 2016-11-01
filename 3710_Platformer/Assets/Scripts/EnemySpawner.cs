@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        this.
         spawnPoint.SetActive(false);
         StartCoroutine(spawnEnemies());
 

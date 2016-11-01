@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour 
+{
+
     // Use this for initialization
     void Start () {
 
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour {
     }
     public void StartLevel1()
     {
+        //SceneManager.GetActiveScene().buildIndex //can be used to get currentscene index and
+        //therefore we can make a startNextLevel() method.
+        //-Adam
+
         SceneManager.LoadScene(1);
     }
     public void ExitGame()
