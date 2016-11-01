@@ -119,7 +119,7 @@ GameObject:
   - 4: {fileID: 4000013012546994}
   m_Layer: 0
   m_Name: SpawnerCluster
-  m_TagString: Untagged
+  m_TagString: SpawnCluster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

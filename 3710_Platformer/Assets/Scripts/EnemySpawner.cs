@@ -13,7 +13,6 @@ public class EnemySpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.
         spawnPoint.SetActive(false);
         StartCoroutine(spawnEnemies());
 
@@ -23,6 +22,10 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnFrequency -= 2;
         }
+    }
+    public void restart()
+    {
+        Start();
     }
 
     // Update is called once per frame
