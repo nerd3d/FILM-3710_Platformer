@@ -37,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(complete)
+        {
+            complete = false;
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().setStageCleared(true);
+        }
     }
     /// <summary>
     /// Spawns one enemy every x seconds until all enemies have spawned
@@ -48,7 +53,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if (currentlySpawned < limit)
             {          
-                Debug.Log("currentlySpawned:" + currentlySpawned);
                 yield return new WaitForSeconds(spawnFrequency);
                 spawnPoint.SetActive(true);//show portal animation
                 yield return new WaitForSeconds(1);
@@ -70,8 +74,7 @@ public class EnemySpawner : MonoBehaviour
     public void spawnDied()
     {
         currentlySpawned--;
-        Debug.Log("currentlySpawned:" + currentlySpawned);
-        if (currentlySpawned == 0 && numEnemy == 0)
+        if (currentlySpawned == 0 && enemiesToSpawn == 0)
         {
             complete = true;
         }

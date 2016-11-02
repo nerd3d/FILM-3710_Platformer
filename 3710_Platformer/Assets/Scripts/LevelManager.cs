@@ -9,9 +9,10 @@ public class LevelManager : MonoBehaviour
     
     private List<GameObject> enemySpawners = new List<GameObject>();
     private int stage;
-    private bool currentStageCleared;
+    private bool levelCleared;
     public GameObject text;
-    private bool stageStartInProgress;
+    private bool stageTransitionInProgress;
+    private bool stageCleared;
 	// Use this for initialization
 
     /// <summary>
@@ -33,15 +34,23 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        stage = 1;
-        StartCoroutine(StartStage());
+        StartCoroutine(startNextStage());
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if(stageCleared)
+        {
+            stageCleared = false;
+            StartCoroutine(EndStage());
+        }
+        //if(levelCleared)
+        //{
+        //    //return to gameMenu...for now
+        //}
         //execute if stageStart has finished
-        if(!stageStartInProgress)
+        if(!stageTransitionInProgress)
         {
             foreach (GameObject spawner in enemySpawners)
             {
@@ -57,13 +66,10 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    public bool isStageCleared()
+    IEnumerator startNextStage()
     {
-        return currentStageCleared;
-    }
-    IEnumerator StartStage()
-    {
-        stageStartInProgress = true;
+        stage++;
+        stageTransitionInProgress = true;
         WaitForSeconds wait = new WaitForSeconds(2);
         text.GetComponent<Text>().text = "Stage " + stage;
         text.SetActive(true);
@@ -71,6 +77,32 @@ public class LevelManager : MonoBehaviour
         text.GetComponent<Text>().text = "Start!";
         yield return wait;//wait 2 seconds
         text.SetActive(false);
-        stageStartInProgress = false;
+        stageTransitionInProgress = false;
+    }
+    IEnumerator EndStage()
+    {
+        stageTransitionInProgress = true;
+        WaitForSeconds wait = new WaitForSeconds(2);
+        text.GetComponent<Text>().text = "Clear!";
+        text.SetActive(true);
+        yield return wait;//wait 2 seconds
+        text.SetActive(false);
+        if(stage == 5)
+        {
+            levelCleared = true;
+
+            text.GetComponent<Text>().text = "Level Complete!";
+            text.SetActive(true);
+            yield return wait;//wait 2 seconds
+            text.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(startNextStage());
+        }
+    }
+    public void setStageCleared(bool isCleared)
+    {
+        stageCleared = isCleared;
     }
 }
