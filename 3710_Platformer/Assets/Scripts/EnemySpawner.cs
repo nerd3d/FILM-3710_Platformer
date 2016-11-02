@@ -18,6 +18,10 @@ public class EnemySpawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if(numEnemy == 0)
+        {
+            complete = true;
+        }
         enemiesToSpawn = numEnemy;
         spawnPoint.SetActive(false);
 
@@ -40,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         if(complete)
         {
             complete = false;
-            GameObject.Find("LevelManager").GetComponent<LevelManager>().setStageCleared(true);
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().setStageCleared();
         }
     }
     /// <summary>

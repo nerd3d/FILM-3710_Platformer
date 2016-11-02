@@ -12,7 +12,8 @@ public class LevelManager : MonoBehaviour
     private bool levelCleared;
     public GameObject text;
     private bool stageTransitionInProgress;
-    private bool stageCleared;
+    private int stageCleared;
+    private int numSpawnClusters;
 	// Use this for initialization
 
     /// <summary>
@@ -22,7 +23,7 @@ public class LevelManager : MonoBehaviour
     {
         //gets all spawn clusters in current scene.
         List<GameObject> spawnClusters = new List<GameObject>(GameObject.FindGameObjectsWithTag("SpawnCluster"));
-
+        numSpawnClusters = spawnClusters.Count;
         foreach(GameObject cluster in spawnClusters)
         {
             foreach(Transform child in cluster.transform)
@@ -40,9 +41,9 @@ public class LevelManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(stageCleared)
+        if(stageCleared == numSpawnClusters)
         {
-            stageCleared = false;
+            stageCleared = 0;
             StartCoroutine(EndStage());
         }
         //if(levelCleared)
@@ -101,8 +102,8 @@ public class LevelManager : MonoBehaviour
             StartCoroutine(startNextStage());
         }
     }
-    public void setStageCleared(bool isCleared)
+    public void setStageCleared()
     {
-        stageCleared = isCleared;
+        stageCleared++;
     }
 }
