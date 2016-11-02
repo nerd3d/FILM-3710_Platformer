@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //execute if stageStart has finished
         if(!stageStartInProgress)
         {
             foreach (GameObject spawner in enemySpawners)

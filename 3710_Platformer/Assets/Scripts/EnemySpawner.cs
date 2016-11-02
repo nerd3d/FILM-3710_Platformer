@@ -7,21 +7,27 @@ public class EnemySpawner : MonoBehaviour
 {
 
     public int numEnemy = 10;  //total number of EnemyType1 that will spawn this stage
-    public int spawnFrequency = 2;  //how often an enemy spawns (in seconds)
+    private int enemiesToSpawn;
+    public int spawnFrequency = 5;  //how often an enemy spawns (in seconds)
     public GameObject enemyType;    //the type of enemy to be spawned
     public GameObject spawnPoint;
+    public int limit = 1;   //Max number of monsters spawned at a time
+    private bool complete;
+    private int currentlySpawned = 0; //how many monsters are currently spawned
+    private float frameRate;
     // Use this for initialization
     void Start()
     {
+        enemiesToSpawn = numEnemy;
         spawnPoint.SetActive(false);
-        StartCoroutine(spawnEnemies());
 
         //We wait for 2 seconds after spawn animation starts to restart the spawning loop,
         //so we subtract that amount of time from spawnFrequency
-        if(spawnFrequency > 2)
+        if (spawnFrequency > 2)
         {
             spawnFrequency -= 2;
         }
+        StartCoroutine(spawnEnemies());
     }
     public void restart()
     {
@@ -38,16 +44,36 @@ public class EnemySpawner : MonoBehaviour
     /// <returns></returns>
     IEnumerator spawnEnemies()
     {
-        for (int i = 0; i < numEnemy; i++)
+        while(enemiesToSpawn > 0)
         {
-
-            Vector3 position = new Vector3(i * 2.0f, 0.55f, 2.0f);
-            yield return new WaitForSeconds(spawnFrequency);
-            spawnPoint.SetActive(true);//show portal animation
-            yield return new WaitForSeconds(1);
-            GameObject enemy = Instantiate(enemyType,spawnPoint.transform.position,Quaternion.identity) as GameObject;
-            yield return new WaitForSeconds(1);
-            spawnPoint.SetActive(false);//hide portal animation
+            if (currentlySpawned < limit)
+            {          
+                Debug.Log("currentlySpawned:" + currentlySpawned);
+                yield return new WaitForSeconds(spawnFrequency);
+                spawnPoint.SetActive(true);//show portal animation
+                yield return new WaitForSeconds(1);
+                currentlySpawned++;
+                enemiesToSpawn--;
+                GameObject enemy = Instantiate(enemyType, spawnPoint.transform.position, Quaternion.identity, this.transform) as GameObject;
+                yield return new WaitForSeconds(1);
+                spawnPoint.SetActive(false);//hide portal animation 
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+        }
+    }
+    /// <summary>
+    /// If all enemies have been spawned and there are no enemies currently spawned, complete = true
+    /// </summary>
+    public void spawnDied()
+    {
+        currentlySpawned--;
+        Debug.Log("currentlySpawned:" + currentlySpawned);
+        if (currentlySpawned == 0 && numEnemy == 0)
+        {
+            complete = true;
         }
     }
 }

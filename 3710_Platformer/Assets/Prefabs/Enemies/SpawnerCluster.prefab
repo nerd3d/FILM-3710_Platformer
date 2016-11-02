@@ -136,7 +136,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &4000011585418464
 Transform:
   m_ObjectHideFlags: 1
@@ -149,7 +149,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &4000011862538960
 Transform:
   m_ObjectHideFlags: 1
@@ -162,7 +162,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &4000011914114714
 Transform:
   m_ObjectHideFlags: 1
@@ -175,7 +175,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 0
+  m_RootOrder: 5
 --- !u!4 &4000012132099720
 Transform:
   m_ObjectHideFlags: 1
@@ -188,7 +188,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &4000012930651924
 Transform:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013012546994}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &4000013012546994
 Transform:
   m_ObjectHideFlags: 1
@@ -213,12 +213,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000011914114714}
   - {fileID: 4000011438901402}
   - {fileID: 4000012930651924}
   - {fileID: 4000011585418464}
   - {fileID: 4000011862538960}
   - {fileID: 4000012132099720}
+  - {fileID: 4000011914114714}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!95 &95000013256156606
@@ -261,9 +261,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numEnemy: 10
-  spawnFrequency: 3
+  spawnFrequency: 5
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1000012204989470}
+  limit: 2
 --- !u!114 &114000010977971178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +280,7 @@ MonoBehaviour:
   spawnFrequency: 3
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1000012204989470}
+  limit: 1
 --- !u!114 &114000011330958314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +296,7 @@ MonoBehaviour:
   spawnFrequency: 3
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1000012204989470}
+  limit: 1
 --- !u!114 &114000013525438908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +312,7 @@ MonoBehaviour:
   spawnFrequency: 3
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1000012204989470}
+  limit: 1
 --- !u!114 &114000013957841828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +328,7 @@ MonoBehaviour:
   spawnFrequency: 3
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1000012204989470}
+  limit: 1
 --- !u!212 &212000010439505732
 SpriteRenderer:
   m_ObjectHideFlags: 1

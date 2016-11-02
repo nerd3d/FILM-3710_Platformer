@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 1;//movement speed of this enemy
     public bool beginFacingRight = true;
     public float gravity = -35;
+    private bool removingEnemy;
 
     private Vector3 previousPosition;
 
@@ -61,7 +62,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            removeEnemy();
+            if(!removingEnemy)
+            {
+                removeEnemy();
+            }
+            removingEnemy = true;
         }
 	}
     /// <summary>
@@ -167,6 +172,7 @@ public class Enemy : MonoBehaviour
     void removeEnemy()
     {
         tag = "Untagged";
+        transform.parent.gameObject.GetComponentInParent<EnemySpawner>().spawnDied();//interacts with spawner to notify this monster died
         Destroy(this.gameObject,1);
     }
 }
