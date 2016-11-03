@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 1
+  numEnemy: 2
   spawnFrequency: 4
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 2022152196}
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 1
+  numEnemy: 2
   spawnFrequency: 5
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1905427674}
