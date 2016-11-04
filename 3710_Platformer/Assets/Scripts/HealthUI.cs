@@ -19,15 +19,30 @@ public class HealthUI : MonoBehaviour {
 
             int numChildren = transform.childCount/2;
             //hardcoded to 3 max hp
-            for (int i = 0; i < numChildren; ++i)
+            for (int i = 0; i < numChildren; i++)
             {
-                if(i<(currentHealth))
+                switch(updatedHealth)
                 {
-                    transform.GetChild(i).gameObject.SetActive(true);
-                }
-                else
-                {
-                    transform.GetChild(i).gameObject.SetActive(false);
+                    case 3:
+                        transform.GetChild(5).gameObject.SetActive(true);
+                        transform.GetChild(4).gameObject.SetActive(true);
+                        transform.GetChild(3).gameObject.SetActive(true);
+                        break;
+                    case 2:
+                        transform.GetChild(5).gameObject.SetActive(false);
+                        transform.GetChild(4).gameObject.SetActive(true);
+                        transform.GetChild(3).gameObject.SetActive(true);
+                        break;
+                    case 1:
+                        transform.GetChild(5).gameObject.SetActive(false);
+                        transform.GetChild(4).gameObject.SetActive(false);
+                        transform.GetChild(3).gameObject.SetActive(true);
+                        break;
+                    case 0:
+                        transform.GetChild(5).gameObject.SetActive(false);
+                        transform.GetChild(4).gameObject.SetActive(false);
+                        transform.GetChild(3).gameObject.SetActive(false);
+                        break;
                 }
             }      
         } 
