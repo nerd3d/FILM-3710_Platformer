@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
     public void spawnDied()
     {
         currentlySpawned--;
-        if (currentlySpawned == 0 && enemiesToSpawn == 0)
+        if (currentlySpawned <= 0 && enemiesToSpawn <= 0)
         {
             complete = true;
         }

@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(stageCleared == numSpawnClusters)
+        if(stageCleared >= numSpawnClusters)
         {
             stageCleared = 0;
             StartCoroutine(EndStage());
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
         text.SetActive(true);
         yield return wait;//wait 2 seconds
         text.SetActive(false);
-        if(stage == 5)
+        if(stage >= 5)
         {
             levelCleared = true;
 
@@ -96,6 +96,8 @@ public class LevelManager : MonoBehaviour
             text.SetActive(true);
             yield return wait;//wait 2 seconds
             text.SetActive(false);
+            GameManager g = new GameManager();
+            g.ExitLevel();
         }
         else
         {
