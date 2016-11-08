@@ -49,11 +49,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemiesToSpawn > 0 && currentlySpawned < limit)
         {
-            spawnPoint.SetActive(true);//show portal animation              
+            spawnPoint.SetActive(true);//show portal animation 
+            Invoke("hidePortal",2);    //hides portal animation after 2 seconds         
             currentlySpawned++;
             enemiesToSpawn--;
             GameObject enemy = Instantiate(enemyType, spawnPoint.transform.position, Quaternion.identity, this.transform) as GameObject;
-            spawnPoint.SetActive(false);//hide portal animation 
+            
         }
     }
     /// <summary>
@@ -66,5 +67,13 @@ public class EnemySpawner : MonoBehaviour
         {
             complete = true;
         }
+    }
+    /// <summary>
+    /// Displays the portal for 2 seconds
+    /// </summary>
+    /// <returns></returns>
+    private void hidePortal()
+    {
+        spawnPoint.SetActive(false);//hide portal animation 
     }
 }
