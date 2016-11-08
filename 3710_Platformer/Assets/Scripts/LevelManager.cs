@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
                 if (spawner.name.Contains(stage.ToString()) && !spawner.activeSelf)
                 {
                     spawner.SetActive(true);
-                    spawner.GetComponent<EnemySpawner>().restart();
+                    //spawner.GetComponent<EnemySpawner>().restart();
                 }
                 else if(!spawner.name.Contains(stage.ToString()) && spawner.activeSelf)
                 {
