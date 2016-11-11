@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private int flickerFrames = 0;
     private int flickerTotal = 3;
     private SpriteRenderer _sprite;
-
+    private int Attacking = 0;
 
     public GameObject gameOverPanel;
     public GameObject gameCamera;
@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2;                // Jump Height
     public int startingHealth = 100;            // Player Starting Health
     public int damageDownTime = 1;                // Invulnerablility time after taking damage
+
+    
 
     /// <summary>
     /// Class Start Function. Initializes Controllers and starts the CameraFollow
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour
             else
                 _controller.move(new Vector3(knockback, knockback, 0) * Time.deltaTime);
             knockbackCount -= Time.deltaTime;
-        }else if (playerAlive && _animator.getAnimation()!="ClubAttack")
+        }else if (playerAlive && Attacking == 0)
         {
             _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
         }else if(!playerAlive)
@@ -71,6 +73,8 @@ public class PlayerController : MonoBehaviour
             _controller.move(velocity * Time.deltaTime);
             PlayerDeath();
         }
+        if (Attacking > 0)
+            Attacking--;
         if (invulnerable > 0)
         {
             tickInvulnerability();
@@ -113,21 +117,27 @@ public class PlayerController : MonoBehaviour
             if (this.transform.parent != null)
                 transform.parent = null;
         }
-
+        
         // Use Spacebar as attack
         if (Input.GetAxis("Fire1") > 0 && _controller.isGrounded)
         {
-            if (_animator.getAnimation() != "ClubAttack")
+
+            if (Attacking == 0)
             {
                 _animator.setAnimation("ClubAttack");
+                Attacking = 45;
             }
-            if (Input.GetAxis("Horizontal") < 0)
-            { // Face Left
-                _animator.setFacing("Left");
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            { // Face Right
-                _animator.setFacing("Right");
+            else
+            {
+
+                if (Input.GetAxis("Horizontal") < 0)
+                { // Face Left
+                    _animator.setFacing("Left");
+                }
+                else if (Input.GetAxis("Horizontal") > 0)
+                { // Face Right
+                    _animator.setFacing("Right");
+                }
             }
         }
         else
