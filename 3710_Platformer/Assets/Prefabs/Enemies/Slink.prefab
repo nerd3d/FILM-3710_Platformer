@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 114000011381320150}
   - 95: {fileID: 95000013676209730}
   m_Layer: 10
-  m_Name: Enemy
+  m_Name: Slink
   m_TagString: EnemyType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

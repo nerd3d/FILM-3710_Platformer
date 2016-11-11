@@ -5,10 +5,7 @@ using System.Collections.Generic;
 
 /// <summary>
 /// This is the base enemy class. This enemy will not chase the player. Movement is simply
-/// x-vector and assumes there are no obstacles on the ground floor. 
-/// Base enemy will walk across floor until reaching a side of the screen, then turn around.
-/// If we wish to add walls they will
-/// need tags so the _controller can check for grounded with walls before changing direction (i think).
+/// x-vector.
 /// </summary>
 public class Enemy : MonoBehaviour
 {
@@ -148,7 +145,7 @@ public class Enemy : MonoBehaviour
             if (col.tag == "PlayerClub") // damage effect
             {
                 this.currentHealth-= 5*Time.deltaTime; //takes 5 DpS
-                this.checkDeath(); 
+                this.checkDeath("Death"); 
             }
         }
     }
@@ -157,14 +154,15 @@ public class Enemy : MonoBehaviour
     /// Also sets contactDamage to 0, which player should be reading to decide damage
     /// taken upon enemy contact.
     /// </summary>
-    private void checkDeath()
+    public void checkDeath(string deathAnimation)
     {
         if(currentHealth <= 0)
         {
             isDead = true;
             contactDamage = 0;
-            _animator.setAnimation("SlinkDeath");
+            _animator.setAnimation(deathAnimation);
         }
+        Debug.Log(this.name + "death animation");
     }
     /// <summary>
     /// Destroys this gameObject after 1 second.

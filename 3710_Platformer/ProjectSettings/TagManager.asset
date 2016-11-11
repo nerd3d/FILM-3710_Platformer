@@ -8,6 +8,7 @@ TagManager:
   - PlayerClub
   - Pickup
   - SpawnCluster
+  - MonsterBarrier
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - PlayerAttack
   - Player
   - Background
-  - 
+  - MonsterBarrier
   - 
   - 
   - 

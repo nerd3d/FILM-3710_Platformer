@@ -45,11 +45,6 @@ public class LevelManager : MonoBehaviour
             stageCleared = 0;
             StartCoroutine(EndStage());
         }
-        //if(levelCleared)
-        //{
-        //    //return to gameMenu...for now
-        //}
-        //execute if stageStart has finished
         if(!stageTransitionInProgress)
         {
             foreach (GameObject spawner in enemySpawners)
@@ -57,7 +52,6 @@ public class LevelManager : MonoBehaviour
                 if (spawner.name.Contains(stage.ToString()) && !spawner.activeSelf)
                 {
                     spawner.SetActive(true);
-                    //spawner.GetComponent<EnemySpawner>().restart();
                 }
                 else if(!spawner.name.Contains(stage.ToString()) && spawner.activeSelf)
                 {
