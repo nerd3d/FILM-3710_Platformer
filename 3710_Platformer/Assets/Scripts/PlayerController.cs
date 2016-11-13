@@ -139,8 +139,9 @@ public class PlayerController : MonoBehaviour
                     _animator.setFacing("Right");
                 }
             }
-        }
-        else
+        }else if (Input.GetAxis("Fire1") > 0 && !_controller.isGrounded) {
+            _animator.setAnimation("JumpAttack");
+        }else
         // if jump is pressed & player is grounded, player jumps
         if (Input.GetAxis("Jump") > 0 && _controller.isGrounded)
         {
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // if in the air, set fump/fall animation
-        if (!_controller.isGrounded)
+        if (!_controller.isGrounded && _animator.getAnimation() != "JumpAttack")
         {
             _animator.setAnimation("Jump");
         }
