@@ -52,9 +52,12 @@ public class ClubAttackBox : MonoBehaviour {
                 swingTime = swingStart;
             if (swingTime > 0)
             {
-                if (swingTime == swingShow)
+                if(swingTime == swingShow - 4) 
                 {
                     isTrigger.enabled = true;
+                }
+                if (swingTime == swingShow)
+                {
                     isRender.enabled = true;
                 }
                 if (swingTime == swingHide)
