@@ -9,6 +9,7 @@ TagManager:
   - Pickup
   - SpawnCluster
   - MonsterBarrier
+  - Projectile
   layers:
   - Default
   - TransparentFX

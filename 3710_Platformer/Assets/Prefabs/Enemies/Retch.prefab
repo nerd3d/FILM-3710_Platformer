@@ -118,6 +118,7 @@ MonoBehaviour:
   gravity: -35
   shootFrequency: 5
   range: 6
+  ammo: {fileID: 1000010662371290, guid: f9c62474dc534ba4eac9ffe0fb03a2f7, type: 2}
 --- !u!114 &114000011797987060
 MonoBehaviour:
   m_ObjectHideFlags: 1

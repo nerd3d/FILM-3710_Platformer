@@ -21,9 +21,10 @@ GameObject:
   - 4: {fileID: 4000010473231850}
   - 212: {fileID: 212000013786883970}
   - 61: {fileID: 61000012781051316}
+  - 114: {fileID: 114000014279104734}
   m_Layer: 10
-  m_Name: Retch Vomit
-  m_TagString: EnemyType1
+  m_Name: RetchVomit
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010662371290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.08, y: -0.61, z: 0}
+  m_LocalPosition: {x: -4.122632, y: 1.1855667, z: 0}
   m_LocalScale: {x: 0.23543057, y: 0.23543057, z: 0.23543057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -52,9 +53,21 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.60575473, y: 0.16520447}
+  m_Offset: {x: 0.47697377, y: 0.16520447}
   serializedVersion: 2
-  m_Size: {x: 3.2476616, y: 1.1550518}
+  m_Size: {x: 2.9901013, y: 1.1550518}
+--- !u!114 &114000014279104734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010662371290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d955ebcc18f5a1489b2e6fd6219b5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!212 &212000013786883970
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: db7c4d52be7dae8438cab92cd4e1760f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

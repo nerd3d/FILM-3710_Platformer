@@ -8,7 +8,7 @@ public class Retch : Enemy
     public float shootFrequency = 5;
     private float shootCD = 0;//shoot cool-down
     public int range = 6;
-
+    public GameObject ammo;
 
     // Use this for initialization
     new void Start()
@@ -30,6 +30,17 @@ public class Retch : Enemy
             {
                 shootCD = shootFrequency;
                 Debug.Log("Fire!");
+                Vector3 modifiedPosition = transform.position;
+                modifiedPosition.y += .3f;
+                if (_animator.getFacing() == "Right")
+                {
+                    modifiedPosition.x += .9f;
+                }
+                else
+                {
+                    modifiedPosition.x -= .9f;
+                }
+                GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
             }
         }
         else

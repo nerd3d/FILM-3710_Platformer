@@ -227,6 +227,20 @@ public class PlayerController : MonoBehaviour
                     PlayerDamage(dmg);
                 }
             }
+            else if (col.tag == "Projectile") // damage effect
+            {
+                if (playerAlive)
+                {
+                    knockback = 3;
+                    knockbackLeft = (col.transform.position.x - transform.position.x) > 0;
+                    knockbackCount = knockbackTime;
+                    invulnerable = damageDownTime;
+
+                    _animator.setAnimation("Damaged");
+                    int dmg = 1;
+                    PlayerDamage(dmg);
+                }
+            }
         }
     }
 
