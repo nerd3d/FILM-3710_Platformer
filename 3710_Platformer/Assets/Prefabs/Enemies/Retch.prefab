@@ -26,6 +26,7 @@ GameObject:
   - 114: {fileID: 114000011797987060}
   - 114: {fileID: 114000012378411122}
   - 95: {fileID: 95000013483061146}
+  - 114: {fileID: 114000011422236722}
   m_Layer: 10
   m_Name: Retch
   m_TagString: EnemyType1
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010206558954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.410196, y: -1.2395089, z: 0}
+  m_LocalPosition: {x: -6.739944, y: 0.15508807, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -74,9 +75,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.14734983, y: -0.21921659}
+  m_Offset: {x: -0.024051666, y: -0.21921659}
   serializedVersion: 2
-  m_Size: {x: 1.2809973, y: 1.4570026}
+  m_Size: {x: 1.5275942, y: 1.4570026}
 --- !u!95 &95000013483061146
 Animator:
   serializedVersion: 3
@@ -94,6 +95,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011422236722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010206558954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb79acf3cf7fd394e8163ea2082b21de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
+  isDead: 0
+  startHP: 50
+  contactDamage: 1
+  stayDamage: 0
+  knockback: 5
+  moveSpeed: 1
+  beginFacingRight: 1
+  gravity: -35
+  shootFrequency: 5
+  range: 6
 --- !u!114 &114000011797987060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,11 +135,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010206558954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7105d018e6d66674ca833741e7fd6b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
   isDead: 0
   startHP: 1
   contactDamage: 1

@@ -9,8 +9,10 @@ using System.Collections.Generic;
 /// </summary>
 public class Enemy : MonoBehaviour
 {
-    private CharacterController2D _controller;//unity movement controls
-    private AnimationController2D _animator;//unity animation controls
+    [HideInInspector]
+    public CharacterController2D _controller;//unity movement controls
+    [HideInInspector]
+    public AnimationController2D _animator;//unity animation controls
     private float currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
     public bool isDead;//determines contactDamage and movement
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour
     private Vector3 previousPosition;
 
     // Use this for initialization
-    void Start ()
+    public void Start ()
     {
 
         _controller = gameObject.GetComponent<CharacterController2D>();
@@ -51,7 +53,7 @@ public class Enemy : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update ()
+	public void Update ()
     {
         if(!isDead)
         {
@@ -163,7 +165,6 @@ public class Enemy : MonoBehaviour
             contactDamage = 0;
             _animator.setAnimation(deathAnimation);
         }
-        Debug.Log(this.name + "death animation");
     }
     /// <summary>
     /// Destroys this gameObject after 1 second.
