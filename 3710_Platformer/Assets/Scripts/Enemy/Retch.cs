@@ -29,7 +29,6 @@ public class Retch : Enemy
             if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX>thisX)
             {
                 shootCD = shootFrequency;
-                Debug.Log("Fire!");
                 Vector3 modifiedPosition = transform.position;
                 modifiedPosition.y += .3f;
                 if (_animator.getFacing() == "Right")

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RetchVomit : MonoBehaviour
 {
-    public float speed = 2;
+    public float speed = 4;
     private float endPoint;
     private float startPoint;
     private bool isVomit = true;
@@ -13,6 +13,7 @@ public class RetchVomit : MonoBehaviour
         speed *= Time.deltaTime;
         startPoint = GetComponentInParent<Transform>().position.x;
         endPoint = GetComponentInParent<Retch>().range;
+        transform.SetParent(null);
         if (startPoint > this.transform.position.x)//facing left
         {
             endPoint = startPoint - endPoint;
