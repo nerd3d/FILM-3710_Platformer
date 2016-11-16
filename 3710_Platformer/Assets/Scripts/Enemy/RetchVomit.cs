@@ -10,16 +10,14 @@ public class RetchVomit : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        speed *= Time.deltaTime;
-        startPoint = GetComponentInParent<Transform>().position.x;
-        endPoint = GetComponentInParent<Retch>().range;
+        speed *= Time.fixedDeltaTime;
+        startPoint = transform.parent.position.x;
+        endPoint = GetComponentInParent<Retch>().range; 
+        transform.position = GetComponentInParent<Retch>().modifiedPosition;
         transform.SetParent(null);
         if (startPoint > this.transform.position.x)//facing left
         {
             endPoint = startPoint - endPoint;
-            Vector3 invertScale = transform.localScale;
-            invertScale.x *= -1;
-            transform.localScale = invertScale;
             speed *= -1;
         }
         else
@@ -31,7 +29,7 @@ public class RetchVomit : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(speed<0)//headed left
+        if (speed<0)//headed left
         {
             if (transform.position.x < endPoint)
             {

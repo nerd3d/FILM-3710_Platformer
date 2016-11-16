@@ -9,6 +9,8 @@ public class Retch : Enemy
     private float shootCD = 0;//shoot cool-down
     public int range = 6;
     public GameObject ammo;
+    [HideInInspector]
+    public Vector3 modifiedPosition;
 
     // Use this for initialization
     new void Start()
@@ -29,7 +31,7 @@ public class Retch : Enemy
             if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX>thisX)
             {
                 shootCD = shootFrequency;
-                Vector3 modifiedPosition = transform.position;
+                modifiedPosition = transform.position;
                 modifiedPosition.y += .3f;
                 if (_animator.getFacing() == "Right")
                 {
@@ -39,6 +41,8 @@ public class Retch : Enemy
                 {
                     modifiedPosition.x -= .9f;
                 }
+                Debug.Log("this.transform.position.x: " + this.transform.position.x);
+                Debug.Log("modified position x: " + modifiedPosition.x);
                 GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
             }
         }
