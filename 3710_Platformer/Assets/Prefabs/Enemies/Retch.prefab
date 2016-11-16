@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 114000012378411122}
   - 95: {fileID: 95000013483061146}
   - 114: {fileID: 114000011422236722}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Retch
   m_TagString: EnemyType1
   m_Icon: {fileID: 0}
@@ -119,6 +119,7 @@ MonoBehaviour:
   shootFrequency: 5
   range: 6
   ammo: {fileID: 1000010662371290, guid: f9c62474dc534ba4eac9ffe0fb03a2f7, type: 2}
+  modifiedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011797987060
 MonoBehaviour:
   m_ObjectHideFlags: 1

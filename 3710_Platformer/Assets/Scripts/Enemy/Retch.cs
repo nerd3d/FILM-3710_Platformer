@@ -23,32 +23,33 @@ public class Retch : Enemy
     // Update is called once per frame
     new void Update ()
     {
-        float thisX = transform.position.x;
-        float playerX = player.transform.position.x;
         base.Update();
-        if (shootCD <= 0)
+        if (!isDead)
         {
-            if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX>thisX)
+            float thisX = transform.position.x;
+            float playerX = player.transform.position.x;
+            if (shootCD <= 0)
             {
-                shootCD = shootFrequency;
-                modifiedPosition = transform.position;
-                modifiedPosition.y += .3f;
-                if (_animator.getFacing() == "Right")
+                if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX > thisX)
                 {
-                    modifiedPosition.x += .9f;
+                    shootCD = shootFrequency;
+                    modifiedPosition = transform.position;
+                    modifiedPosition.y += .3f;
+                    if (_animator.getFacing() == "Right")
+                    {
+                        modifiedPosition.x += .9f;
+                    }
+                    else
+                    {
+                        modifiedPosition.x -= .9f;
+                    }
+                    GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
                 }
-                else
-                {
-                    modifiedPosition.x -= .9f;
-                }
-                Debug.Log("this.transform.position.x: " + this.transform.position.x);
-                Debug.Log("modified position x: " + modifiedPosition.x);
-                GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
             }
-        }
-        else
-        {
-            shootCD-=Time.deltaTime;
+            else
+            {
+                shootCD -= Time.deltaTime;
+            }
         }
     }
 }

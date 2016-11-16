@@ -26,7 +26,7 @@ GameObject:
   - 114: {fileID: 114000013289571432}
   - 114: {fileID: 114000011381320150}
   - 95: {fileID: 95000013676209730}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Slink
   m_TagString: EnemyType1
   m_Icon: {fileID: 0}
@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7105d018e6d66674ca833741e7fd6b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
   isDead: 0
   startHP: 1
   contactDamage: 1
