@@ -48,7 +48,7 @@ public class ClubAttackBox : MonoBehaviour {
             BoxCollider2D isTrigger = gameObject.GetComponent<BoxCollider2D>();
             SpriteRenderer isRender = gameObject.GetComponent<SpriteRenderer>();
 
-            if (swingTime == 0 && _animator.getAnimation() == "ClubAttack")
+            if (swingTime == 0 && (_animator.getAnimation() == "ClubAttack" || _animator.getAnimation() == "JumpAttack"))
                 swingTime = swingStart;
             if (swingTime > 0)
             {
@@ -56,7 +56,7 @@ public class ClubAttackBox : MonoBehaviour {
                 {
                     isTrigger.enabled = true;
                 }
-                if (swingTime == swingShow)
+                if (swingTime == swingShow && _animator.getAnimation() != "JumpAttack")
                 {
                     isRender.enabled = true;
                 }
@@ -76,7 +76,7 @@ public class ClubAttackBox : MonoBehaviour {
             }
         }else
         {
-            if (_animator.getAnimation() != "ClubAttack")
+            if (_animator.getAnimation() != "ClubAttack" && _animator.getAnimation() != "JumpAttack")
                 swingDone = false;
         }
     }
