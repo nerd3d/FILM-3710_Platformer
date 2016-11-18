@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     public bool isDead;//determines contactDamage and movement
     private bool isEnemy;//restrict trigger collission code to enemy
 
-    //public GameObject player;//target this enemy will chase/attack
     public int startHP = 50;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 
@@ -30,7 +29,8 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 1;//movement speed of this enemy
     public bool beginFacingRight = true;
     public float gravity = -35;
-    private bool removingEnemy;
+    [HideInInspector]
+    public bool removingEnemy;
 
     private Vector3 previousPosition;
 
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     /// Basic AIMovement is limited to x vector.
     /// </summary>
     /// <returns></returns>
-    private Vector3 AiMovement()
+    virtual public Vector3 AiMovement()
     {
         Vector3 velocity = _controller.velocity;
         //if offscreen on right side
@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Destroys this gameObject after 1 second.
     /// </summary>
-    void removeEnemy()
+    public void removeEnemy()
     {
         tag = "Untagged";
         transform.parent.gameObject.GetComponentInParent<EnemySpawner>().spawnDied();//interacts with spawner to notify this monster died

@@ -670,7 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemy: 3
   spawnFrequency: 2
-  enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
+  enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 37782619}
   limit: 5
 --- !u!1 &272801412
