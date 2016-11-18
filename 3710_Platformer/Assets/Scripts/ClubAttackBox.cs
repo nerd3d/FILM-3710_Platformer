@@ -8,7 +8,7 @@ public class ClubAttackBox : MonoBehaviour {
     private int swingStart = 44;
     private int swingShow = 38;
     private int swingHide = 30;
-    private int swingEnd = 15;
+    private int swingEnd = 25;
     private int swingTime = 0;
     private bool swingDone = false;
 
