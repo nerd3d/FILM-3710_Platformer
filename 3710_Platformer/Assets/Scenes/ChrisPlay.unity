@@ -1838,58 +1838,6 @@ Prefab:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 731065026}
-    - target: {fileID: 4000010277524284, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010277524284, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012243193678, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010277524284, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 0.9031248
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1.1986182
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: -0.23623192
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011601909664, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.7598245
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012243193678, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012636850820, guid: b8fd77bcb4b43b94187ed849b84e3a20,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
   m_IsPrefabParent: 0
