@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public bool isDead;//determines contactDamage and movement
     private bool isEnemy;//restrict trigger collission code to enemy
 
-    public int startHP = 50;  //initial hp of this enemy
+    public int startHP = 5;  //initial hp of this enemy
 
     //contactDamage may need to be handled by trigger, 
     //may need a level manager for keeping track of enemies for player

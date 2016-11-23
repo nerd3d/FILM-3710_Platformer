@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour 
 {
-
+    static int maxLevels = 2;
     // Use this for initialization
     void Start () {
 
@@ -32,6 +32,18 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(1);
     }
+    /// <summary>
+    /// Starts the next level. If there is no next level, the player wins (title screen)
+    /// </summary>
+    public static void StartNextLevel() 
+    {
+      int nextLevel = SceneManager.GetActiveScene().buildIndex+1;
+      
+      if(nextLevel<=maxLevels)
+        SceneManager.LoadScene(nextLevel);
+      else
+        SceneManager.LoadScene(0); // Should change to Win Game Screen, when we have one. - Chris
+  }
     public void ExitGame()
     {
         Application.Quit();

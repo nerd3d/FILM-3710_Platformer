@@ -89,9 +89,10 @@ public class LevelManager : MonoBehaviour
             text.SetActive(true);
             yield return wait;//wait 2 seconds
             text.SetActive(false);
-            GameManager g = new GameManager();
-            g.ExitLevel();
-        }
+            //GameManager g = new GameManager();
+            //g.ExitLevel();
+            GameManager.StartNextLevel(); // trying out next level - Chris
+    }
         else
         {
             StartCoroutine(startNextStage());
