@@ -107,7 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
   _animator: {fileID: 0}
+  currentHealth: 0
   isDead: 0
+  isEnemy: 0
   startHP: 1
   contactDamage: 1
   stayDamage: 0
@@ -116,6 +118,7 @@ MonoBehaviour:
   beginFacingRight: 1
   gravity: 0
   removingEnemy: 0
+  player: {fileID: 0}
 --- !u!114 &114000012822413982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +134,7 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 0
   triggerMask:
     serializedVersion: 2
     m_Bits: 12288

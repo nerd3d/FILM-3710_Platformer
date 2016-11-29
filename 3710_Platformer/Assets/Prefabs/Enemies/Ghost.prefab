@@ -25,8 +25,9 @@ GameObject:
   - 114: {fileID: 114000010074387604}
   - 114: {fileID: 114000012393788418}
   - 95: {fileID: 95000010344167990}
+  - 114: {fileID: 114000011992243964}
   m_Layer: 11
-  m_Name: HiveMaw
+  m_Name: Ghost
   m_TagString: EnemyType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +109,7 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 0
   triggerMask:
     serializedVersion: 2
     m_Bits: 12288
@@ -142,6 +143,31 @@ MonoBehaviour:
   totalVerticalRays: 4
   ground: {fileID: 0}
   landingPoint: {x: -0.019132793, y: -2}
+--- !u!114 &114000011992243964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013176850366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba046f8992c2cc4c9caeb2567fa5b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _animator: {fileID: 0}
+  currentHealth: 0
+  isDead: 0
+  isEnemy: 0
+  startHP: 5
+  contactDamage: 1
+  stayDamage: 0
+  knockback: 5
+  moveSpeed: 1
+  beginFacingRight: 1
+  gravity: -35
+  removingEnemy: 0
+  player: {fileID: 0}
 --- !u!114 &114000012393788418
 MonoBehaviour:
   m_ObjectHideFlags: 1

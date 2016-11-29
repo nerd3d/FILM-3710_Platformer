@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Pest : Enemy
 {
-    private Transform player;
+    [HideInInspector]
+    public Transform player;
     // Use this for initialization
-    new void Start ()
+    public virtual new void Start ()
     {
         player = GameObject.Find("Player").transform;
         base.Start();

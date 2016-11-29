@@ -13,10 +13,12 @@ public class Enemy : MonoBehaviour
     public CharacterController2D _controller;//unity movement controls
     [HideInInspector]
     public AnimationController2D _animator;//unity animation controls
-    private float currentHealth = 0;//current health of enemy at any given time
+    [HideInInspector]
+    public float currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
     public bool isDead;//determines contactDamage and movement
-    private bool isEnemy;//restrict trigger collission code to enemy
+    [HideInInspector]
+    public bool isEnemy;//restrict trigger collission code to enemy
 
     public int startHP = 5;  //initial hp of this enemy
 
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	public void Update ()
+	virtual public void Update ()
     {
         if(!isDead)
         {
@@ -107,20 +109,6 @@ public class Enemy : MonoBehaviour
             velocity.x = moveSpeed;//move right
         }
         velocity.y += gravity * Time.deltaTime;
-
-        //the following is for a chaser enemy if implemented in future, in progress..
-        //   if (_controller.gameObject.transform.position.x < player.transform.position.x)
-        //{
-        //velocity.x = moveSpeed;
-        //_animator.setAnimation("Walk"); //not in whitebox version
-        //_animator.setFacing("Right");
-        //}
-        //else
-        //{
-        //    velocity.x = -moveSpeed;
-        //_animator.setAnimation("Walk"); //not in whitebox version
-        //    _animator.setFacing("Left");
-        //}
         previousPosition = _controller.transform.position;
         return velocity;
     }
@@ -140,7 +128,7 @@ public class Enemy : MonoBehaviour
     /// Trigger boxes with an "enter" effect will use this function
     /// </summary>
     /// <param name="col">Collider with effect</param>
-    void OnTriggerStay2D(Collider2D col)
+    virtual public void OnTriggerStay2D(Collider2D col)
     {
         if(isEnemy)//restrict following code to enemy on trigger collission
         {
