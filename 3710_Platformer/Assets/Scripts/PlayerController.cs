@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
   public int startingHealth = 100;            // Player Starting Health
   public int damageDownTime = 1;                // Invulnerablility time after taking damage
 
-
+  private CameraFollow2D gameCameraScript;
 
   /// <summary>
   /// Class Start Function. Initializes Controllers and starts the CameraFollow
@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour {
   void Start() {
     _controller = gameObject.GetComponent<CharacterController2D>();
     _animator = gameObject.GetComponent<AnimationController2D>();
-    gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
+    gameCameraScript = gameCamera.GetComponent<CameraFollow2D>();
+    gameCameraScript.startCameraFollow(this.gameObject);
     currentHealth = startingHealth; // set starting health
     _sprite = gameObject.GetComponent<SpriteRenderer>();
   }
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour {
       if (Attacking == 0) {
         _animator.setAnimation("ClubAttack");
         Attacking = 45;
+        gameCameraScript.impact(5);
       } else {
 
         if (Input.GetAxis("Horizontal") < 0) { // Face Left
