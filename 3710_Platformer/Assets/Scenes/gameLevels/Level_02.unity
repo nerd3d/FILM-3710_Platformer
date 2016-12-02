@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 1
+  numEnemy: 2
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 2022152196}
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 5
+  numEnemy: 4
   spawnFrequency: 1
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1905427674}
@@ -915,8 +915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 6
-  spawnFrequency: 1
+  numEnemy: 4
+  spawnFrequency: 2
   enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 1905427674}
   limit: 3
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 4
+  numEnemy: 3
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 1905427674}
@@ -2472,6 +2472,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 272225950}
+    - target: {fileID: 114000012171524320, guid: 21c204ba3a1c1f74d8c7d888a6f3b526,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 272225950}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21c204ba3a1c1f74d8c7d888a6f3b526, type: 2}
   m_IsPrefabParent: 0
@@ -2642,7 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 4
+  numEnemy: 2
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 1888231343}
@@ -2948,7 +2953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 4
+  numEnemy: 3
   spawnFrequency: 1
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 2022152196}
@@ -2996,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 6
+  numEnemy: 4
   spawnFrequency: 1
   enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 2022152196}
@@ -3443,7 +3448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numEnemy: 3
-  spawnFrequency: 3
+  spawnFrequency: 2
   enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 1888231343}
   limit: 2
@@ -4550,7 +4555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 4
+  numEnemy: 2
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 1905427674}
@@ -4713,7 +4718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 4
+  numEnemy: 3
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 2022152196}

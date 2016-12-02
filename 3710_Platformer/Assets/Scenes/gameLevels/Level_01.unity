@@ -514,8 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 8
-  spawnFrequency: 2
+  numEnemy: 4
+  spawnFrequency: 1
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1905427674}
   limit: 10
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numEnemy: 6
-  spawnFrequency: 1
+  spawnFrequency: 2
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 2022152196}
   limit: 10
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 12
+  numEnemy: 6
   spawnFrequency: 1
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1905427674}
@@ -1188,8 +1188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 10
-  spawnFrequency: 1
+  numEnemy: 8
+  spawnFrequency: 2
   enemyType: {fileID: 1000011543400986, guid: df9360ddda0a9f843b437521a885f790, type: 2}
   spawnPoint: {fileID: 1905427674}
   limit: 10
@@ -1763,6 +1763,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 272225950}
+    - target: {fileID: 114000012088924424, guid: 21c204ba3a1c1f74d8c7d888a6f3b526,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 272225950}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21c204ba3a1c1f74d8c7d888a6f3b526, type: 2}
   m_IsPrefabParent: 0
@@ -2036,7 +2041,7 @@ MonoBehaviour:
   spawnFrequency: 2
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 2022152196}
-  limit: 1
+  limit: 2
 --- !u!4 &1453186250 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012551874424, guid: 2403709bd9a410f4fb338fae5140e4cc,
@@ -2713,7 +2718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 5
+  numEnemy: 2
   spawnFrequency: 1
   enemyType: {fileID: 1000010206558954, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
   spawnPoint: {fileID: 2022152196}
