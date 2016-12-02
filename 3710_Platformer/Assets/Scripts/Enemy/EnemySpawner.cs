@@ -27,11 +27,6 @@ public class EnemySpawner : MonoBehaviour
 
         InvokeRepeating("spawnEnemies", spawnFrequency, spawnFrequency);
     }
-    public void restart()
-    {
-        Start();
-    }
-
     // Update is called once per frame
     void Update()
     {
