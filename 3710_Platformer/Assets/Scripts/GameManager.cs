@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour 
 {
-    static int maxLevels = 2;
+    static int maxLevels = 3;
     // Use this for initialization
     void Start () {
 
