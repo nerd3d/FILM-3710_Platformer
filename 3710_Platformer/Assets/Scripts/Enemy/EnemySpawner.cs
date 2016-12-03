@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private bool complete;
     private int currentlySpawned = 0; //how many monsters are currently spawned
     private float frameRate;
+    private int needPortalAnimation = 0;
     // Use this for initialization
     void Start()
     {
@@ -44,13 +45,19 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemiesToSpawn > 0 && currentlySpawned < limit)
         {
-            spawnPoint.SetActive(true);//show portal animation 
-            Invoke("hidePortal",2);    //hides portal animation after 2 seconds         
+            spawnPoint.SetActive(true);//show portal animation       
             currentlySpawned++;
             enemiesToSpawn--;
-            GameObject enemy = Instantiate(enemyType, spawnPoint.transform.position, Quaternion.identity, this.transform) as GameObject;
-            
+            Invoke("instantiateEnemy", 1);
+
         }
+    }
+    private void instantiateEnemy()
+    {
+        GameObject enemy = Instantiate(enemyType, spawnPoint.transform.position, Quaternion.identity, this.transform) as GameObject;
+        needPortalAnimation--;
+        Invoke("hidePortal", 1);    //hides portal animation after 1 seconds
+
     }
     /// <summary>
     /// If all enemies have been spawned and there are no enemies currently spawned, complete = true
@@ -69,6 +76,9 @@ public class EnemySpawner : MonoBehaviour
     /// <returns></returns>
     private void hidePortal()
     {
-        spawnPoint.SetActive(false);//hide portal animation 
+        if (needPortalAnimation <= 0)
+        {
+            spawnPoint.SetActive(false);//hide portal animation 
+        }
     }
 }
