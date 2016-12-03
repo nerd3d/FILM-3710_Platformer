@@ -77,18 +77,18 @@ public class Enemy : MonoBehaviour
     virtual public Vector3 AiMovement()
     {
         Vector3 velocity = _controller.velocity;
-        //if offscreen on right side
-        if (_controller.transform.position.x > cameraWidth)
-        {
-            turnLeft(velocity);
-        }
-        //if offscreen on left side
-        else if(_controller.transform.position.x < -cameraWidth)
-        {
-            turnRight(velocity);
-        }
+        ////if offscreen on right side
+        //if (_controller.transform.position.x > cameraWidth)
+        //{
+        //    turnLeft(velocity);
+        //}
+        ////if offscreen on left side
+        //else if(_controller.transform.position.x < -cameraWidth)
+        //{
+        //    turnRight(velocity);
+        //}
         //if not moving forward (due to obstacle)
-        else if(_controller.transform.position == previousPosition)
+        if(_controller.transform.position == previousPosition)
         {
             if(_animator.getFacing() == "Left")
             {
