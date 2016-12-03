@@ -28,6 +28,15 @@ public class PlayerController : MonoBehaviour {
 
   public GameObject gameOverPanel;
   public GameObject gameCamera;
+  public AudioClip attack1;
+  public AudioClip attack2;
+  public AudioClip jump1;
+  public AudioClip jump2;
+  public AudioClip damaged1;
+  public AudioClip damaged2;
+  public AudioClip death1;
+  public AudioClip death2;
+
   public float gravity = -35;                 // gravity for player
   public float walkSpeed = 3;                 // player walk speed
   public float slideFriction = 0.2f;          // sliding friction for player
@@ -110,6 +119,7 @@ public class PlayerController : MonoBehaviour {
         _animator.setAnimation("ClubAttack");
         Attacking = 45;
         gameCameraScript.impact(5);
+        SoundManager.instance.RandomizeSfx(attack1, attack2);
       } else {
 
         if (Input.GetAxis("Horizontal") < 0) { // Face Left
@@ -120,11 +130,13 @@ public class PlayerController : MonoBehaviour {
       }
     } else if (Input.GetAxis("Fire1") > 0 && !_controller.isGrounded) {
       _animator.setAnimation("JumpAttack");
+      SoundManager.instance.RandomizeSfx(attack1, attack2);
     } else
      // if jump is pressed & player is grounded, player jumps
      if (Input.GetAxis("Jump") > 0 && _controller.isGrounded) {
       _animator.setAnimation("Jump");
       velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity); // jump height is a scalar manupulation of gravity
+      SoundManager.instance.RandomizeSfx(jump1, jump2);
     } else
      // if horizontal input is negative, move left
      if (Input.GetAxis("Horizontal") < 0) { // Move Left
@@ -193,6 +205,7 @@ public class PlayerController : MonoBehaviour {
           invulnerable = damageDownTime;
 
           _animator.setAnimation("Damaged");
+          SoundManager.instance.RandomizeSfx(damaged1, damaged2);
           int dmg = enemy.contactDamage;
           PlayerDamage(dmg);
         }
@@ -230,6 +243,7 @@ public class PlayerController : MonoBehaviour {
   private void PlayerDeath() {
     if (_controller.isGrounded)
       _animator.setAnimation("Death");
+    SoundManager.instance.RandomizeSfx(death1, death2);
     playerAlive = false;
     gameOverPanel.SetActive(true);
   }

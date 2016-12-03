@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011598946336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.44, z: 0}
+  m_LocalPosition: {x: 1.09, y: 0.52, z: 0}
   m_LocalScale: {x: -0.39080778, y: 0.39080778, z: 0.39080778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012256565232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4054406, y: -1.1802876, z: 0}
+  m_LocalPosition: {x: -1.49, y: -1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -203,9 +203,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.9031248, y: -0.23623192}
+  m_Offset: {x: 0.989446, y: -0.23623192}
   serializedVersion: 2
-  m_Size: {x: 1.1986182, y: 1.7598245}
+  m_Size: {x: 1.3712605, y: 1.7598245}
 --- !u!61 &61000012072806594
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -342,6 +342,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 0}
   gameCamera: {fileID: 1000012290904638}
+  attack1: {fileID: 8300000, guid: 051f2a6d07a9a6b43a2633d2a5b5ec4a, type: 3}
+  attack2: {fileID: 8300000, guid: 1d9ca2a75fad1d445ab4d9701ca8414f, type: 3}
+  jump1: {fileID: 8300000, guid: 737029e0757e2a44cbcf8b5ea1bb774d, type: 3}
+  jump2: {fileID: 8300000, guid: 23ffed193d7dd25498d5a1b92b74b489, type: 3}
+  damaged1: {fileID: 8300000, guid: faa8672c8cc7c6d478a6e878952aa7a2, type: 3}
+  damaged2: {fileID: 8300000, guid: c3fe3ba91d3223b4bb6a2176e95385a5, type: 3}
+  death1: {fileID: 8300000, guid: b3ef01dc4aa65174e9efe6700ae92ec4, type: 3}
+  death2: {fileID: 8300000, guid: fb71566fca9737d4486eb588bb84d84d, type: 3}
   gravity: -35
   walkSpeed: 4
   slideFriction: 0.2
