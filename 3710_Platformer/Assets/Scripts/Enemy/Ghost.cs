@@ -16,7 +16,6 @@ public class Ghost : Pest
     public override void Update()
     {
         base.Update();
-        Debug.Log(hitRight);
         if (hitLeft)//headed left
         {
             Vector3 newPosition = transform.position;
