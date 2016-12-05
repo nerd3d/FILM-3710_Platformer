@@ -990,7 +990,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: f30141f8bcad34c3c9b4730ce0982166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e18c42532d2544239a9ba0d53c0ab2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1344,7 +1344,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: f30141f8bcad34c3c9b4730ce0982166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e18c42532d2544239a9ba0d53c0ab2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2662,9 +2662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 0
-  spawnFrequency: 2
-  enemyType: {fileID: 1000013176850366, guid: dd863de0604a15149814d7821183ac54, type: 2}
+  numEnemy: 6
+  spawnFrequency: 4
+  enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 1888231343}
   limit: 2
 --- !u!1 &941623303
@@ -4517,7 +4517,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: f30141f8bcad34c3c9b4730ce0982166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e18c42532d2544239a9ba0d53c0ab2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4579,7 +4579,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: f30141f8bcad34c3c9b4730ce0982166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e18c42532d2544239a9ba0d53c0ab2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5183,11 +5183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed85133215e5cb458a10649b0fdf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemy: 0
-  spawnFrequency: 2
-  enemyType: {fileID: 1000013176850366, guid: dd863de0604a15149814d7821183ac54, type: 2}
+  numEnemy: 4
+  spawnFrequency: 3
+  enemyType: {fileID: 1000010335902900, guid: 570b724f0222261459bc30bcb0cdbc72, type: 2}
   spawnPoint: {fileID: 2022152196}
-  limit: 2
+  limit: 1
 --- !u!1 &2022152196
 GameObject:
   m_ObjectHideFlags: 0
