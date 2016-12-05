@@ -272,7 +272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013418979930, guid: b8fd77bcb4b43b94187ed849b84e3a20, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013575889284, guid: b8fd77bcb4b43b94187ed849b84e3a20,
         type: 2}
@@ -487,6 +487,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012551874424, guid: 2403709bd9a410f4fb338fae5140e4cc,
     type: 2}
   m_PrefabInternal: {fileID: 209528531}
+--- !u!1001 &214163307
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.7807534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.530458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013220018910, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 402bd022d42d3d7478105de43f8c0fc8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &233596664
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +987,7 @@ Transform:
   - {fileID: 1557942790}
   - {fileID: 609672549}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!1 &577161597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013917280182, guid: 434273db88594504e855df75320b9d6d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000013917280182, guid: 434273db88594504e855df75320b9d6d, type: 2}
       propertyPath: m_LocalScale.x
@@ -1508,7 +1550,7 @@ Transform:
   - {fileID: 308712559}
   - {fileID: 1286652997}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &1007768249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010151593166, guid: 707a405d2a878ab4080bb522471077a2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 707a405d2a878ab4080bb522471077a2, type: 2}
@@ -2018,7 +2060,7 @@ Transform:
   - {fileID: 272801413}
   - {fileID: 1232381634}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1001 &1272396691
 Prefab:
   m_ObjectHideFlags: 0
@@ -2606,7 +2648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012177789340, guid: 9778ef03786bb5f478f8f9f8a91caa4b, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9778ef03786bb5f478f8f9f8a91caa4b, type: 2}
