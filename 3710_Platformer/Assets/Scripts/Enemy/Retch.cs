@@ -11,6 +11,8 @@ public class Retch : Enemy
     public GameObject ammo;
     [HideInInspector]
     public Vector3 modifiedPosition;
+    private int attackingAnimation = 100;
+    private bool attacking;
 
     // Use this for initialization
     new void Start()
@@ -21,7 +23,7 @@ public class Retch : Enemy
     }
 
     // Update is called once per frame
-    new void Update ()
+    new void Update()
     {
         base.Update();
         if (!isDead)
@@ -32,24 +34,35 @@ public class Retch : Enemy
             {
                 if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX > thisX)
                 {
+                    _animator.setAnimation("RetchAttack");
+                    attackingAnimation = 0;
                     shootCD = shootFrequency;
-                    modifiedPosition = transform.position;
-                    modifiedPosition.y += .3f;
-                    if (_animator.getFacing() == "Right")
-                    {
-                        modifiedPosition.x += .9f;
-                    }
-                    else
-                    {
-                        modifiedPosition.x -= .9f;
-                    }
-                    GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
+                    attacking = true;
+                    Debug.Log("Got here?");
                 }
             }
             else
             {
                 shootCD -= Time.deltaTime;
             }
+            if (attacking && attackingAnimation>(30))
+            {
+                attacking = false;
+                attackingAnimation = 0;
+                modifiedPosition = transform.position;
+                modifiedPosition.y += .3f;
+                if (_animator.getFacing() == "Right")
+                {
+                    modifiedPosition.x += .9f;
+                }
+                else
+                {
+                    modifiedPosition.x -= .9f;
+                }
+                GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
+            }
+            Debug.Log(attackingAnimation);
         }
+        attackingAnimation++;
     }
 }

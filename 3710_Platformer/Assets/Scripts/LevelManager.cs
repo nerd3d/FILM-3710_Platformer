@@ -65,8 +65,10 @@ public class LevelManager : MonoBehaviour
         stage++;
         stageTransitionInProgress = true;
         WaitForSeconds wait = new WaitForSeconds(2);
-        text.GetComponent<Text>().text = "Stage " + stage;
+        text.GetComponent<Text>().text = "Waves left: " + (6-stage);
         text.SetActive(true);
+        yield return wait;//wait 2 seconds
+        text.GetComponent<Text>().text = "Wave: " + stage;
         yield return wait;//wait 2 seconds
         text.GetComponent<Text>().text = "Start!";
         yield return wait;//wait 2 seconds
