@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     public float gravity = -35;
     [HideInInspector]
     public bool removingEnemy;
+    private bool wasPaused = false;
 
     private Vector3 previousPosition;
 
@@ -57,17 +58,24 @@ public class Enemy : MonoBehaviour
 	// Update is called once per frame
 	virtual public void Update ()
     {
-        if(!isDead)
+        if(Time.timeScale != 0)
         {
-            _controller.move(AiMovement() * Time.deltaTime);
+            if (!isDead)
+            {
+                _controller.move(AiMovement() * Time.deltaTime);
+            }
+            else
+            {
+                if (!removingEnemy)
+                {
+                    removeEnemy();
+                }
+                removingEnemy = true;
+            }
         }
         else
         {
-            if(!removingEnemy)
-            {
-                removeEnemy();
-            }
-            removingEnemy = true;
+            wasPaused = true;
         }
 	}
     /// <summary>
@@ -77,26 +85,24 @@ public class Enemy : MonoBehaviour
     virtual public Vector3 AiMovement()
     {
         Vector3 velocity = _controller.velocity;
-        ////if offscreen on right side
-        //if (_controller.transform.position.x > cameraWidth)
-        //{
-        //    turnLeft(velocity);
-        //}
-        ////if offscreen on left side
-        //else if(_controller.transform.position.x < -cameraWidth)
-        //{
-        //    turnRight(velocity);
-        //}
         //if not moving forward (due to obstacle)
-        if(_controller.transform.position == previousPosition)
+        if (_controller.transform.position == previousPosition)
         {
-            if(_animator.getFacing() == "Left")
+            if (wasPaused)
             {
-                turnRight(velocity);
+                wasPaused = false;
+                previousPosition.y--;
             }
             else
             {
-                turnLeft(velocity);
+                if (_animator.getFacing() == "Left")
+                {
+                    turnRight(velocity);
+                }
+                else
+                {
+                    turnLeft(velocity);
+                }
             }
         }
         //move left if facing left, right otherwise.
@@ -115,13 +121,11 @@ public class Enemy : MonoBehaviour
     private void turnRight(Vector3 velocity)
     {
         velocity.x = moveSpeed;
-        //_animator.setAnimation("Walk"); //not in whitebox version
         _animator.setFacing("Right");
     }
     private void turnLeft(Vector3 velocity)
     {
         velocity.x = -moveSpeed;
-        //_animator.setAnimation("Walk"); //not in whitebox version
         _animator.setFacing("Left");
     }
     /// <summary>
@@ -134,7 +138,6 @@ public class Enemy : MonoBehaviour
         {
             if (col.tag == "PlayerClub") // damage effect
             {
-                //this.currentHealth-= 5*Time.deltaTime; //takes 5 DpS
                 this.currentHealth -= 5;
                 this.checkDeath("Death"); 
             }

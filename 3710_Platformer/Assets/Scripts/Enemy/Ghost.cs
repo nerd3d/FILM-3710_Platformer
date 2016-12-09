@@ -16,28 +16,31 @@ public class Ghost : Pest
     public override void Update()
     {
         base.Update();
-        if (hitLeft)//headed left
+        if (Time.timeScale != 0)
         {
-            Vector3 newPosition = transform.position;
-            newPosition.x += speed;
-            newPosition.y -= speed;
-            transform.position = newPosition;
-            if (transform.position.x < endPoint.x)
+            if (hitLeft)//headed left
             {
-                transform.position = endPoint;
-                hitLeft = false;
+                Vector3 newPosition = transform.position;
+                newPosition.x += speed;
+                newPosition.y -= speed;
+                transform.position = newPosition;
+                if (transform.position.x < endPoint.x)
+                {
+                    transform.position = endPoint;
+                    hitLeft = false;
+                }
             }
-        }
-        else if (hitRight)
-        {
-            Vector3 newPosition = transform.position;
-            newPosition.x += speed;
-            newPosition.y += speed;
-            transform.position = newPosition;
-            if (transform.position.x > endPoint.x)
+            else if (hitRight)
             {
-                transform.position = endPoint;
-                hitRight = false;
+                Vector3 newPosition = transform.position;
+                newPosition.x += speed;
+                newPosition.y += speed;
+                transform.position = newPosition;
+                if (transform.position.x > endPoint.x)
+                {
+                    transform.position = endPoint;
+                    hitRight = false;
+                }
             }
         }
 

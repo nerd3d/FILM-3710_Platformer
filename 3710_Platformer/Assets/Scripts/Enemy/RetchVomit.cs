@@ -29,24 +29,27 @@ public class RetchVomit : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (speed<0)//headed left
+        if (Time.timeScale != 0)
         {
-            if (transform.position.x < endPoint)
+            if (speed < 0)//headed left
             {
-                Destroy(this.gameObject);
+                if (transform.position.x < endPoint)
+                {
+                    Destroy(this.gameObject);
+                }
             }
-        }
-        else//headed right
-        {
-            if (transform.position.x > endPoint)
+            else//headed right
             {
-                Destroy(this.gameObject);
+                if (transform.position.x > endPoint)
+                {
+                    Destroy(this.gameObject);
+                }
             }
+            //move
+            Vector3 newPosition = transform.position;
+            newPosition.x += speed;
+            transform.position = newPosition;
         }
-        //move
-        Vector3 newPosition = transform.position;
-        newPosition.x += speed;
-        transform.position = newPosition;
 	}
     void OnTriggerStay2D(Collider2D col)
     {

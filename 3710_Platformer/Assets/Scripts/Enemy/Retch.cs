@@ -26,43 +26,44 @@ public class Retch : Enemy
     new void Update()
     {
         base.Update();
-        if (!isDead)
+        if (Time.timeScale != 0)
         {
-            float thisX = transform.position.x;
-            float playerX = player.transform.position.x;
-            if (shootCD <= 0)
+            if (!isDead)
             {
-                if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX > thisX)
+                float thisX = transform.position.x;
+                float playerX = player.transform.position.x;
+                if (shootCD <= 0)
                 {
-                    _animator.setAnimation("RetchAttack");
-                    attackingAnimation = 0;
-                    shootCD = shootFrequency;
-                    attacking = true;
-                    Debug.Log("Got here?");
-                }
-            }
-            else
-            {
-                shootCD -= Time.deltaTime;
-            }
-            if (attacking && attackingAnimation>(30))
-            {
-                attacking = false;
-                attackingAnimation = 0;
-                modifiedPosition = transform.position;
-                modifiedPosition.y += .3f;
-                if (_animator.getFacing() == "Right")
-                {
-                    modifiedPosition.x += .9f;
+                    if (_animator.getFacing() == "Left" && thisX > playerX || _animator.getFacing() == "Right" && playerX > thisX)
+                    {
+                        _animator.setAnimation("RetchAttack");
+                        attackingAnimation = 0;
+                        shootCD = shootFrequency;
+                        attacking = true;
+                    }
                 }
                 else
                 {
-                    modifiedPosition.x -= .9f;
+                    shootCD -= Time.deltaTime;
                 }
-                GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
+                if (attacking && attackingAnimation > (30))
+                {
+                    attacking = false;
+                    attackingAnimation = 0;
+                    modifiedPosition = transform.position;
+                    modifiedPosition.y += .3f;
+                    if (_animator.getFacing() == "Right")
+                    {
+                        modifiedPosition.x += .9f;
+                    }
+                    else
+                    {
+                        modifiedPosition.x -= .9f;
+                    }
+                    GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
+                }
             }
-            //Debug.Log(attackingAnimation);
+            attackingAnimation++;
         }
-        attackingAnimation++;
     }
 }
