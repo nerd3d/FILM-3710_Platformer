@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour {
   private int flickerTotal = 3;
   private SpriteRenderer _sprite;
   private int Attacking = 0;
+  private bool paused = false;
+  private bool unpauseable = false;
 
   public GameObject gameOverPanel;
   public GameObject gameCamera;
@@ -62,27 +64,34 @@ public class PlayerController : MonoBehaviour {
   /// Frame Update method. Called every frame
   /// </summary>
   void Update() {
-    if (knockbackCount > 0) {
-      if (knockbackLeft)
-        _controller.move(new Vector3(-knockback, knockback, 0) * Time.deltaTime);
-      else
-        _controller.move(new Vector3(knockback, knockback, 0) * Time.deltaTime);
-      knockbackCount -= Time.deltaTime;
-    } else if (playerAlive && Attacking == 0) {
-      _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
-    } else if (!playerAlive) {
-      Vector3 velocity = _controller.velocity;
-      velocity.x *= (1 - slideFriction);
-      velocity.y += gravity * Time.deltaTime;
-      _controller.move(velocity * Time.deltaTime);
-      PlayerDeath();
-    }
-    if (Attacking > 0)
-      Attacking--;
-    if (invulnerable > 0) {
-      tickInvulnerability();
-    } else if (!_sprite.enabled) {
-      _sprite.enabled = true;
+    if (!paused) {
+      if (knockbackCount > 0) {
+        if (knockbackLeft)
+          _controller.move(new Vector3(-knockback, knockback, 0) * Time.deltaTime);
+        else
+          _controller.move(new Vector3(knockback, knockback, 0) * Time.deltaTime);
+        knockbackCount -= Time.deltaTime;
+      } else if (playerAlive && Attacking == 0) {
+        _controller.move(PlayerInput() * Time.deltaTime); // player movement references PlayerInput
+      } else if (!playerAlive) {
+        Vector3 velocity = _controller.velocity;
+        velocity.x *= (1 - slideFriction);
+        velocity.y += gravity * Time.deltaTime;
+        _controller.move(velocity * Time.deltaTime);
+        PlayerDeath();
+      }
+      if (Attacking > 0)
+        Attacking--;
+      if (invulnerable > 0) {
+        tickInvulnerability();
+      } else if (!_sprite.enabled) {
+        _sprite.enabled = true;
+      }
+    }else {
+      if (Input.GetKeyDown("escape") && paused) {
+        paused = false;
+        Time.timeScale = 1;
+      }
     }
   }
 
@@ -110,6 +119,11 @@ public class PlayerController : MonoBehaviour {
     } else {
       if (this.transform.parent != null)
         transform.parent = null;
+    }
+
+    if (Input.GetKeyDown("escape") && !paused) {
+      paused = true;
+      Time.timeScale = 0;
     }
 
     // Use Spacebar as attack
