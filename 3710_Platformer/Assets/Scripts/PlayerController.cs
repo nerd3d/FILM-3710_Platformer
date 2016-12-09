@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
   private bool paused = false;
   private bool unpauseable = false;
 
+  public GameObject pausePanel;
   public GameObject gameOverPanel;
   public GameObject gameCamera;
   public AudioClip attack1;
@@ -94,10 +95,15 @@ public class PlayerController : MonoBehaviour {
       }
     }else {
       if (Input.GetKeyDown("escape") && paused) {
-        paused = false;
-        Time.timeScale = 1;
+        unpause();
       }
     }
+  }
+
+  public void unpause() {
+    pausePanel.SetActive(false);
+    paused = false;
+    Time.timeScale = 1;
   }
 
   private void tickInvulnerability() {
@@ -127,6 +133,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     if (Input.GetKeyDown("escape") && !paused) {
+      pausePanel.SetActive(true);
       paused = true;
       Time.timeScale = 0;
     }
