@@ -61,7 +61,7 @@ public class Retch : Enemy
                 }
                 GameObject projectile = Instantiate(ammo, modifiedPosition, Quaternion.identity, this.transform) as GameObject;
             }
-            Debug.Log(attackingAnimation);
+            //Debug.Log(attackingAnimation);
         }
         attackingAnimation++;
     }

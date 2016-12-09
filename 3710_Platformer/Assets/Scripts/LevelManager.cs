@@ -13,12 +13,17 @@ public class LevelManager : MonoBehaviour
     private bool stageTransitionInProgress;
     private int stageCleared;
     private int numSpawnClusters;
-	// Use this for initialization
 
-    /// <summary>
-    /// makes a list of all enemySpawners in scene
-    /// </summary>
-	void Start ()
+    public AudioClip Start1;
+    public AudioClip Start2;
+    public AudioClip Start3;
+
+  // Use this for initialization
+
+  /// <summary>
+  /// makes a list of all enemySpawners in scene
+  /// </summary>
+  void Start ()
     {
         //gets all spawn clusters in current scene.
         List<GameObject> spawnClusters = new List<GameObject>(GameObject.FindGameObjectsWithTag("SpawnCluster"));
@@ -74,6 +79,7 @@ public class LevelManager : MonoBehaviour
         yield return wait;//wait 2 seconds
         text.SetActive(false);
         stageTransitionInProgress = false;
+        SoundManager.instance.RandomizeSfx(Start1, Start2, Start3);
     }
     IEnumerator EndStage()
     {

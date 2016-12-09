@@ -10,6 +10,9 @@ public class SoundManager : MonoBehaviour {
   public float lowPitchRange = 0.95f;
   public float highPitchRange = 1.05f;
 
+  private System.Random randGen = new System.Random();
+  private double playchance = 0.6;
+
   // Use this for initialization
   void Awake() {
     if (instance == null)
@@ -26,11 +29,13 @@ public class SoundManager : MonoBehaviour {
   }
 
   public void RandomizeSfx(params AudioClip [] _clips) {
-    int randomIndex = Random.Range(0, _clips.Length);
-    float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+    if (randGen.NextDouble() < playchance) {
+      int randomIndex = Random.Range(0, _clips.Length);
+      float randomPitch = Random.Range(lowPitchRange, highPitchRange);
 
-    efxSource.pitch = randomPitch;
-    efxSource.clip = _clips[randomIndex];
-    efxSource.Play();
+      efxSource.pitch = randomPitch;
+      efxSource.clip = _clips[randomIndex];
+      efxSource.Play();
+    }
   }
 }
