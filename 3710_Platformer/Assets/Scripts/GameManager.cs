@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour 
 {
-    static int maxLevels = 3;
+    static int maxLevels = 4;
     // Use this for initialization
     void Start () {
 
@@ -31,6 +31,14 @@ public class GameManager : MonoBehaviour
         //-Adam
 
         SceneManager.LoadScene(1);
+    }
+    public void StartLevel2()
+    {
+        //SceneManager.GetActiveScene().buildIndex //can be used to get currentscene index and
+        //therefore we can make a startNextLevel() method.
+        //-Adam
+
+        SceneManager.LoadScene(2);
     }
     /// <summary>
     /// Starts the next level. If there is no next level, the player wins (title screen)

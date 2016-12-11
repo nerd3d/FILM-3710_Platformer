@@ -12,6 +12,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gameLevels/StartMenu.unity
   - enabled: 1
+    path: Assets/Scenes/gameLevels/Tutorial.unity
+  - enabled: 1
     path: Assets/Scenes/gameLevels/Level_01.unity
   - enabled: 1
     path: Assets/Scenes/gameLevels/Level_02.unity
