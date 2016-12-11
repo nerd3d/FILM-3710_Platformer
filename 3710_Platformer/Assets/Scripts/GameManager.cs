@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
     public void ExitLevel()
     {
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(0);
     }
     public void StartLevel1()
