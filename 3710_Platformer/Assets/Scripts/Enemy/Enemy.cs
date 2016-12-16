@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float currentHealth = 0;//current health of enemy at any given time
     private float cameraWidth;//width of cameraview in units <-super important, see implementation below
+    public AudioClip hit1;
+    public AudioClip death1;
+    public AudioClip death2;
+    public AudioClip death3;
     public bool isDead;//determines contactDamage and movement
     [HideInInspector]
     public bool isEnemy;//restrict trigger collission code to enemy
@@ -138,6 +142,8 @@ public class Enemy : MonoBehaviour
         {
             if (col.tag == "PlayerClub") // damage effect
             {
+
+                SoundManager.instance.PlaySingle(hit1);
                 this.currentHealth -= 5;
                 this.checkDeath("Death"); 
             }
@@ -155,6 +161,7 @@ public class Enemy : MonoBehaviour
             isDead = true;
             contactDamage = 0;
             _animator.setAnimation(deathAnimation);
+            SoundManager.instance.RandomizeSfx(death1, death2, death3);
         }
     }
     /// <summary>

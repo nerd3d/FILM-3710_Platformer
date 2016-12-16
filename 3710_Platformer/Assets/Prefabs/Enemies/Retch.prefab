@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010206558954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.232239, y: 0.17947483, z: 0}
+  m_LocalPosition: {x: 15.72, y: 1.86, z: 0}
   m_LocalScale: {x: -0.7775736, y: 0.7775736, z: 0.7775736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -108,7 +108,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
   _animator: {fileID: 0}
+  currentHealth: 0
+  hit1: {fileID: 0}
+  death1: {fileID: 0}
+  death2: {fileID: 0}
+  death3: {fileID: 0}
   isDead: 0
+  isEnemy: 0
   startHP: 5
   contactDamage: 1
   stayDamage: 0
@@ -145,7 +151,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
   _animator: {fileID: 0}
+  currentHealth: 0
+  hit1: {fileID: 8300000, guid: dd432d1b7899c8948b4c2270cd5686da, type: 3}
+  death1: {fileID: 8300000, guid: d2b486efcd8c7ca45a790920a63de9fa, type: 3}
+  death2: {fileID: 8300000, guid: 34781496ca6f44d4881b30b5a4d40867, type: 3}
+  death3: {fileID: 8300000, guid: c795b72b09d39e2478f5a83179dc657e, type: 3}
   isDead: 0
+  isEnemy: 0
   startHP: 1
   contactDamage: 1
   stayDamage: 0

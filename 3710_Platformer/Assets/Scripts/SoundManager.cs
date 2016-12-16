@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour {
 
   public void PlaySingle(AudioClip _clip) {
     efxSource.clip = _clip;
-    efxSource.Play();
+    efxSource.PlayOneShot(efxSource.clip);
   }
 
   public void RandomizeSfx(params AudioClip [] _clips) {
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour {
 
       efxSource.pitch = randomPitch;
       efxSource.clip = _clips[randomIndex];
-      efxSource.Play();
+      efxSource.PlayOneShot(efxSource.clip);
     }
   }
 }

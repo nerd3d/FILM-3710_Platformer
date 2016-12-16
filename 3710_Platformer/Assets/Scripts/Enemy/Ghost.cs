@@ -51,6 +51,7 @@ public class Ghost : Pest
         {
             if (col.tag == "PlayerClub") // damage effect
             {
+                SoundManager.instance.PlaySingle(hit1);
                 this.currentHealth -= 1;
                 this.checkDeath("Death");
                 if (player.position.x < transform.position.x)

@@ -415,7 +415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011440973222, guid: 26791faca1582534886dd3a32a52fc70, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 82000012377470636, guid: 26791faca1582534886dd3a32a52fc70,
         type: 2}
@@ -5400,7 +5400,7 @@ Transform:
   - {fileID: 1912595626}
   - {fileID: 658272143}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &1997847434
 GameObject:
   m_ObjectHideFlags: 0
