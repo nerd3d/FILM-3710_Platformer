@@ -533,7 +533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Start!
 --- !u!222 &644799195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114000012535935226, guid: a78ba3bf75bdca34c92726d583e96bc8,
           type: 2}
-        m_MethodName: StartLevel2
+        m_MethodName: StartNextLvlWrapper
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

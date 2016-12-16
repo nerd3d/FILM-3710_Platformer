@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour 
 {
-    static int maxLevels = 4;
+    static int maxLevels = 19;
     // Use this for initialization
     void Start () {
 
@@ -30,19 +30,12 @@ public class GameManager : MonoBehaviour
     }
     public void StartLevel1()
     {
-        //SceneManager.GetActiveScene().buildIndex //can be used to get currentscene index and
-        //therefore we can make a startNextLevel() method.
-        //-Adam
-
         SceneManager.LoadScene(1);
     }
-    public void StartLevel2()
+    public void SkipIntro()
     {
-        //SceneManager.GetActiveScene().buildIndex //can be used to get currentscene index and
-        //therefore we can make a startNextLevel() method.
-        //-Adam
-
-        SceneManager.LoadScene(2);
+        //tutorial scene is 15th
+        SceneManager.LoadScene(15);
     }
     /// <summary>
     /// Starts the next level. If there is no next level, the player wins (title screen)
@@ -56,6 +49,14 @@ public class GameManager : MonoBehaviour
       else
         SceneManager.LoadScene(0); // Should change to Win Game Screen, when we have one. - Chris
   }
+    /// <summary>
+    /// Wrapper method for making startnextlevel none-static
+    /// This is needed to use the method in unity button ui.
+    /// </summary>
+    public void StartNextLvlWrapper()
+    {
+        StartNextLevel();
+    }
     public void ExitGame()
     {
         Application.Quit();
